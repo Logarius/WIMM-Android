@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context="net.oschina.git.roland.wimm.WellComeActivity">
 
+    <Button
+        android:id="@+id/btn_say"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Say"/>
+
 </RelativeLayout>
