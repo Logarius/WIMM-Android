@@ -15,11 +15,8 @@ import net.oschina.git.roland.wimm.common.data.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
 import net.oschina.git.roland.wimm.main.MainActivity;
 
-import org.xutils.DbManager;
-import org.xutils.ex.DbException;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
-import org.xutils.x;
 
 /**
  * Created by Roland on 2017/4/10.
@@ -39,13 +36,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @ViewInject(R.id.btn_login)
     private Button btnLogin;
 
-    private DbManager dbManager;
-
     private SharedPreferences sp;
 
     @Override
     protected void initComp() {
-        dbManager = x.getDb(application.getDaoConfig());
         sp = getSharedPreferences(WIMMConstants.SHARED_PREFERENCE_NAME, MODE_PRIVATE);
     }
 
@@ -78,49 +72,40 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         User temp;
 
-        try {
-            switch (v.getId()) {
-                case R.id.btn_register:
-                    temp = dbManager.selector(User.class).where("userId", "=", userId).findFirst();
-                    if (temp != null) {
-                        Toast.makeText(LoginActivity.this, R.string.warning_userid_duplicate, Toast.LENGTH_SHORT).show();
-                    } else {
-                        User user = new User();
-                        user.setUserId(userId);
-                        user.setPassword(password);
-                        user.setName(userId);
-                        dbManager.saveOrUpdate(user);
-                        application.setmUser(user);
+        switch (v.getId()) {
+            case R.id.btn_register:
+                temp = User.findByUserId(userId);
+                if (temp != null) {
+                    Toast.makeText(LoginActivity.this, R.string.warning_userid_duplicate, Toast.LENGTH_SHORT).show();
+                } else {
+                    User user = new User();
+                    user.setUserId(userId);
+                    user.setPassword(password);
+                    user.setName(userId);
+                    user.saveOrUpdate();
+                    application.setmUser(user);
 
-                        Account account = new Account();
-                        account.setUserId(userId);
-                        dbManager.saveOrUpdate(account);
+                    Account account = new Account();
+                    account.setUserId(userId);
+                    account.saveOrUpdate();
 
-                        toMainActivity();
-                    }
-                    break;
+                    toMainActivity();
+                }
+                break;
 
-                case R.id.btn_login:
-                    temp = dbManager.selector(User.class)
-                            .where("userId", "=", userId)
-                            .and("password", "=", password)
-                            .findFirst();
-                    if (temp == null) {
-                        Toast.makeText(LoginActivity.this, R.string.warning_userid_password_error, Toast.LENGTH_SHORT).show();
-                    } else {
-                        application.setmUser(temp);
-                        toMainActivity();
-                    }
-                    break;
+            case R.id.btn_login:
+                temp = User.findByUserIdPassword(userId, password);
+                if (temp == null) {
+                    Toast.makeText(LoginActivity.this, R.string.warning_userid_password_error, Toast.LENGTH_SHORT).show();
+                } else {
+                    application.setmUser(temp);
+                    toMainActivity();
+                }
+                break;
 
-                default:
-                    break;
-            }
-
-        } catch (DbException e) {
-            e.printStackTrace();
+            default:
+                break;
         }
-
     }
 
     private void toMainActivity() {

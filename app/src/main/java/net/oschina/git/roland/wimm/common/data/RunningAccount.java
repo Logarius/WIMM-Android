@@ -1,5 +1,6 @@
 package net.oschina.git.roland.wimm.common.data;
 
+import net.oschina.git.roland.wimm.common.base.BaseDbObj;
 import net.oschina.git.roland.wimm.common.utils.NumericUtils;
 
 import org.xutils.db.annotation.Column;
@@ -9,7 +10,7 @@ import org.xutils.db.annotation.Table;
  * Created by Roland on 2017/4/10.
  */
 @Table(name = "RunningAccount")
-public class RunningAccount {
+public class RunningAccount extends BaseDbObj {
 
     @Column(name = "id", isId = true)
     private int id;

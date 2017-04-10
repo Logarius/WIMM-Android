@@ -13,10 +13,6 @@ import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.User;
 
-import org.xutils.DbManager;
-import org.xutils.ex.DbException;
-import org.xutils.x;
-
 /**
  * Created by Roland on 2017/4/10.
  */
@@ -30,8 +26,6 @@ public class StatisticsFragment extends Fragment {
     private TextView tvName;
 
     private TextView tvAmount;
-
-    private DbManager dbManager;
 
     private User user = WIMMApplication.getApplication().getmUser();
 
@@ -48,7 +42,6 @@ public class StatisticsFragment extends Fragment {
     }
 
     private void initComp() {
-        dbManager = x.getDb(WIMMApplication.getApplication().getDaoConfig());
         tvName = (TextView) contentView.findViewById(R.id.tv_name);
         tvAmount = (TextView) contentView.findViewById(R.id.tv_amount);
     }
@@ -58,16 +51,10 @@ public class StatisticsFragment extends Fragment {
     }
 
     private void initData() {
-        try {
-            account = dbManager.selector(Account.class).where("userId", "=", user.getUserId()).findFirst();
-            if (account == null) {
-                return;
-            }
-        } catch (DbException e) {
-            e.printStackTrace();
+        account = Account.findByUserId(user.getUserId());
+        if (account != null) {
+            tvName.setText(user.getName());
+            tvAmount.setText(String.valueOf(account.getAmount()));
         }
-
-        tvName.setText(user.getName());
-        tvAmount.setText(String.valueOf(account.getAmount()));
     }
 }
