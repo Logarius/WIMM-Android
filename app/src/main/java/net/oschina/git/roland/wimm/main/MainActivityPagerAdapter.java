@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.runningacount.RunningAcountFragment;
+import net.oschina.git.roland.wimm.runningaccount.RunningAccountFragment;
 import net.oschina.git.roland.wimm.settings.SettingsFragment;
 import net.oschina.git.roland.wimm.statistics.StatisticsFragment;
 
@@ -14,7 +14,7 @@ import net.oschina.git.roland.wimm.statistics.StatisticsFragment;
  * Created by Roland on 2017/4/10.
  */
 
-public class MainActivityPagerAdapter extends FragmentPagerAdapter {
+class MainActivityPagerAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
 
@@ -22,11 +22,11 @@ public class MainActivityPagerAdapter extends FragmentPagerAdapter {
 
     private StatisticsFragment statisticsFragment;
 
-    private RunningAcountFragment runningAcountFragment;
+    private RunningAccountFragment runningAcountFragment;
 
     private SettingsFragment settingsFragment;
 
-    public MainActivityPagerAdapter(FragmentManager fm, Context context) {
+    MainActivityPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;
 
@@ -48,7 +48,7 @@ public class MainActivityPagerAdapter extends FragmentPagerAdapter {
 
             case 1:
                 if (runningAcountFragment == null) {
-                    runningAcountFragment = new RunningAcountFragment();
+                    runningAcountFragment = new RunningAccountFragment();
                 }
                 return runningAcountFragment;
 

@@ -11,6 +11,8 @@ import org.xutils.x;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    protected WIMMApplication application = WIMMApplication.getApplication();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

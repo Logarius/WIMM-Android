@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">WIMM</string>
-    
+
     <string name="str_statistics">统计</string>
     <string name="str_running_acount">流水</string>
     <string name="str_settings">设置</string>
+
+    <string name="str_confirm">确认</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_register">注册</string>
+    <string name="str_login">登录</string>
+
+    <string name="warning_userid_empty">用户ID为空</string>
+    <string name="warning_password_empty">密码为空</string>
+    <string name="warning_userid_duplicate">用户ID重复</string>
+    <string name="warning_userid_password_error">用户ID或密码错误</string>
 </resources>

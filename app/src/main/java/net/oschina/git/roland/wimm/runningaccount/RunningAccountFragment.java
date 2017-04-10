@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.runningacount;
+package net.oschina.git.roland.wimm.runningaccount;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +14,7 @@ import net.oschina.git.roland.wimm.R;
  * Created by Roland on 2017/4/10.
  */
 
-public class RunningAcountFragment extends Fragment {
+public class RunningAccountFragment extends Fragment {
 
     @Nullable
     @Override
@@ -22,7 +22,7 @@ public class RunningAcountFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_welcome, container, false);
 
         TextView textView = (TextView) view.findViewById(R.id.text);
-        textView.setText("RunningAcountFragment");
+        textView.setText("RunningAccountFragment");
 
         return view;
     }

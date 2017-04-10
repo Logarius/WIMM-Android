@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 标准字大小 -->
+    <!-- 用于大多数辅助文字、副标题、备注信息、时间等 -->
+    <dimen name="std_text_size_small">12sp</dimen>
+    <!-- 用于大多数大段文字 -->
+    <dimen name="std_text_size_normal">14sp</dimen>
+    <!-- 用于大多数标题文字、重要文字、表单文字 -->
+    <dimen name="std_text_size_big">16sp</dimen>
+    <!-- 用于少数重要标题，主要用于action bar及button -->
+    <dimen name="std_text_size_huge">18sp</dimen>
+</resources>
