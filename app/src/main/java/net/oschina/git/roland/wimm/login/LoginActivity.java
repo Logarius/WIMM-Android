@@ -1,6 +1,7 @@
 package net.oschina.git.roland.wimm.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
+import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
@@ -39,9 +41,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private DbManager dbManager;
 
+    private SharedPreferences sp;
+
     @Override
     protected void initComp() {
-        dbManager = x.getDb(application.getUserDao());
+        dbManager = x.getDb(application.getDaoConfig());
+        sp = getSharedPreferences(WIMMConstants.SHARED_PREFERENCE_NAME, MODE_PRIVATE);
     }
 
     @Override
@@ -52,7 +57,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initData() {
-
+        String userId = sp.getString(WIMMConstants.SP_KEY_LAST_LOGIN_USER, "");
+        etUserId.setText(userId);
+        etUserId.setSelection(userId.length());
     }
 
     @Override
@@ -117,6 +124,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void toMainActivity() {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(WIMMConstants.SP_KEY_LAST_LOGIN_USER, application.getmUser().getUserId());
+        editor.apply();
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

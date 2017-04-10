@@ -17,7 +17,7 @@ public class WIMMApplication extends Application {
 
     private User mUser;
 
-    private DbManager.DaoConfig userDao;
+    private DbManager.DaoConfig daoConfig;
 
     @Override
     public void onCreate() {
@@ -26,8 +26,8 @@ public class WIMMApplication extends Application {
         x.Ext.setDebug(false);
         application = this;
 
-        userDao = new DbManager.DaoConfig()
-                .setDbName("user.db")
+        daoConfig = new DbManager.DaoConfig()
+                .setDbName("wimm.db")
                 .setDbVersion(1);
     }
 
@@ -43,7 +43,7 @@ public class WIMMApplication extends Application {
         this.mUser = mUser;
     }
 
-    public DbManager.DaoConfig getUserDao() {
-        return userDao;
+    public DbManager.DaoConfig getDaoConfig() {
+        return daoConfig;
     }
 }

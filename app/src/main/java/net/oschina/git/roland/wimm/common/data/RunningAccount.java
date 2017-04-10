@@ -1,9 +1,9 @@
 package net.oschina.git.roland.wimm.common.data;
 
+import net.oschina.git.roland.wimm.common.utils.NumericUtils;
+
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
-
-import java.math.BigDecimal;
 
 /**
  * Created by Roland on 2017/4/10.
@@ -30,7 +30,7 @@ public class RunningAccount {
      * 收支
      */
     @Column(name = "amount")
-    private BigDecimal amount;
+    private double amount;
 
     /**
      * 备注
@@ -50,14 +50,6 @@ public class RunningAccount {
         this.userId = userId;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     public String getRemark() {
         return remark;
     }
@@ -72,5 +64,13 @@ public class RunningAccount {
 
     public void setTimeStamp(long timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public double getAmount() {
+        return NumericUtils.getRoundDoubleValue(amount, 2);
+    }
+
+    public void setAmount(double amount) {
+        this.amount = NumericUtils.getRoundDoubleValue(amount, 2);
     }
 }
