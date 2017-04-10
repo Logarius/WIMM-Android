@@ -21,6 +21,12 @@ public class RunningAccount {
     private String userId = "";
 
     /**
+     * 时间戳
+     */
+    @Column(name = "timeStamp")
+    private long timeStamp = 0;
+
+    /**
      * 收支
      */
     @Column(name = "amount")
@@ -58,5 +64,13 @@ public class RunningAccount {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }

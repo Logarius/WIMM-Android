@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
+import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
 import net.oschina.git.roland.wimm.main.MainActivity;
@@ -83,6 +84,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         user.setName(userId);
                         dbManager.saveOrUpdate(user);
                         application.setmUser(user);
+
+                        Account account = new Account();
+                        account.setUserId(userId);
+                        dbManager.saveOrUpdate(account);
+
                         toMainActivity();
                     }
                     break;

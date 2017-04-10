@@ -18,7 +18,7 @@ public class Account {
     private String userId = "";
 
     @Column(name = "amount")
-    private BigDecimal amount;
+    private BigDecimal amount = BigDecimal.valueOf(0);
 
     public String getUserId() {
         return userId;
