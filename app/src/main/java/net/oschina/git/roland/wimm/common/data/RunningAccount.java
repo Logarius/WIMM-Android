@@ -1,10 +1,16 @@
 package net.oschina.git.roland.wimm.common.data;
 
 import net.oschina.git.roland.wimm.common.base.BaseDbObj;
+import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.utils.NumericUtils;
 
+import org.xutils.DbManager;
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
+import org.xutils.ex.DbException;
+import org.xutils.x;
+
+import java.util.List;
 
 /**
  * Created by Roland on 2017/4/10.
@@ -73,5 +79,22 @@ public class RunningAccount extends BaseDbObj {
 
     public void setAmount(double amount) {
         this.amount = NumericUtils.getRoundDoubleValue(amount, 2);
+    }
+
+    public static List<RunningAccount> findByUserId(String userId) {
+        DbManager dbManager = x.getDb(WIMMApplication.getApplication().getDaoConfig());
+        List<RunningAccount> result = null;
+
+        try {
+            result = dbManager
+                    .selector(RunningAccount.class)
+                    .where("userId", "=", userId)
+                    .orderBy("timeStamp", true)
+                    .findAll();
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }
