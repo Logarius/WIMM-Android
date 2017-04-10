@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WIMM</string>
+    
+    <string name="str_statistics">统计</string>
+    <string name="str_running_acount">流水</string>
+    <string name="str_settings">设置</string>
 </resources>

@@ -9,12 +9,21 @@ import org.xutils.x;
 /**
  * Created by Roland on 2017/4/10.
  */
-
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
+
+        initComp();
+        initListener();
+        initData();
     }
+
+    protected abstract void initComp();
+
+    protected abstract void initListener();
+
+    protected abstract void initData();
 }
