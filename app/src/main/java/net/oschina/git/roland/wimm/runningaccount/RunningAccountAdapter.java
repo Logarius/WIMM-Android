@@ -132,6 +132,7 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     @Override
     public void notifyDataSetChanged() {
+        groupNames.clear();
         if (datas != null) {
             groupNames.addAll(datas.keySet());
             sortGroupNames();

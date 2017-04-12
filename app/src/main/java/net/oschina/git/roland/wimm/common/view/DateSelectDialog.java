@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
+import android.widget.DatePicker;
 
 import net.oschina.git.roland.wimm.R;
 
@@ -13,7 +14,13 @@ import net.oschina.git.roland.wimm.R;
 
 public class DateSelectDialog {
 
+    private static final String TAG = DateSelectDialog.class.getSimpleName();
+
     private AlertDialog.Builder dialog;
+
+    private DatePicker datePicker;
+
+    private OnDateSelectListener onDateSelectListener;
 
     public DateSelectDialog(Context context) {
         dialog = new AlertDialog.Builder(context);
@@ -22,22 +29,29 @@ public class DateSelectDialog {
         View dialogView = View.inflate(context, R.layout.dialog_date_select, null);
         dialog.setView(dialogView);
 
+        datePicker = (DatePicker) dialogView.findViewById(R.id.date_picker);
+
         dialog.setPositiveButton(R.string.str_confirm, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                if (onDateSelectListener != null) {
+                    onDateSelectListener.onDateSelect(datePicker.getYear(), datePicker.getMonth()+1, datePicker.getDayOfMonth());
+                }
             }
         });
 
-        dialog.setNegativeButton(R.string.str_cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
+        dialog.setNegativeButton(R.string.str_cancel, null);
     }
 
     public void show() {
         dialog.show();
+    }
+
+    public void setOnDateSelectListener(OnDateSelectListener onDateSelectListener) {
+        this.onDateSelectListener = onDateSelectListener;
+    }
+
+    public interface OnDateSelectListener {
+        void onDateSelect(int year, int month, int dayOfMonth);
     }
 }

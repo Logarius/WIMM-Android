@@ -70,19 +70,17 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
         datas.clear();
         filteredDatas.clear();
 
-//        List<RunningAccount> localData = RunningAccount.findByUserId(WIMMApplication.getApplication().getmUser().getUserId());
-//        if (localData != null && localData.size() > 0) {
-//            datas.addAll(localData);
-//            filterData();
-//        }
-
-        makeFakeData();
-        filterData();
+        List<RunningAccount> localData = RunningAccount.findByUserId(WIMMApplication.getApplication().getmUser().getUserId());
+        if (localData != null && localData.size() > 0) {
+            datas.addAll(localData);
+            filterData();
+        }
 
         adapter.notifyDataSetChanged();
     }
 
     private void filterData() {
+        filteredDatas.clear();
         SimpleDateFormat dateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
         for (RunningAccount item : datas) {
             String strDate = dateFormat.format(new Date(item.getTimeStamp()));
@@ -93,77 +91,31 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
         }
     }
 
-    /**
-     * 假数据
-     */
-    private void makeFakeData() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
-        String userId = WIMMApplication.getApplication().getmUser().getUserId();
-
-        try {
-            RunningAccount item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-03-21").getTime());
-            item.setAmount(100);
-            item.setRemark("工资");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-05-15").getTime());
-            item.setAmount(-100);
-            item.setRemark("买衣服");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
-            item.setAmount(-100);
-            item.setRemark("吃饭");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
-            item.setAmount(100);
-            item.setRemark("工资");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
-            item.setAmount(100);
-            item.setRemark("工资");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(dateFormat.parse("2016-03-22").getTime());
-            item.setAmount(100);
-            item.setRemark("工资");
-            datas.add(item);
-
-            item = new RunningAccount();
-            item.setUserId(userId);
-            item.setTimeStamp(System.currentTimeMillis());
-            item.setAmount(100);
-            item.setRemark("工资");
-            datas.add(item);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_add:
-                Log.d(TAG, "ImageView iv_add clicked.");
-                new AddRunningAccountDialog(getContext()).show();
+                AddRunningAccountDialog dialog = new AddRunningAccountDialog(getContext());
+                dialog.setOnNewRunningAccountAddListener(onNewRunningAccountAddListener);
+                dialog.show();
                 break;
 
             default:
                 break;
         }
+    }
+
+    private AddRunningAccountDialog.OnNewRunningAccountAddListener onNewRunningAccountAddListener = new AddRunningAccountDialog.OnNewRunningAccountAddListener() {
+        @Override
+        public void onNewRunningAccount(RunningAccount account) {
+            datas.add(account);
+            filterData();
+            adapter.notifyDataSetChanged();
+        }
+    };
+
+    private void refreshList() {
+        adapter.notifyDataSetChanged();
+
     }
 }
