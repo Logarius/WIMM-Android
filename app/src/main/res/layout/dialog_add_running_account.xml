@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_value_normal"
+    android:paddingRight="@dimen/margin_value_normal">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginTop="@dimen/margin_value_tiny"
+        android:layout_marginBottom="@dimen/margin_value_normal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/std_text_size_big"
+        android:textColor="@color/green"
+        android:text="@string/et_label_date"/>
+
+    <EditText
+        android:id="@+id/et_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/std_text_size_normal"
+        android:editable="false"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/std_text_size_big"
+        android:textColor="@color/green"
+        android:text="@string/et_label_inout"/>
+
+    <EditText
+        android:id="@+id/et_inout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/std_text_size_normal"
+        android:inputType="numberSigned|numberDecimal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/std_text_size_big"
+        android:textColor="@color/green"
+        android:text="@string/et_label_remark"/>
+
+    <EditText
+        android:id="@+id/et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/std_text_size_normal"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+</LinearLayout>
