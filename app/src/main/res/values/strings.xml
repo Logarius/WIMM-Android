@@ -17,4 +17,6 @@
 
     <string name="str_user">用户</string>
     <string name="str_amount">资产</string>
+
+    <string name="str_today">今天</string>
 </resources>

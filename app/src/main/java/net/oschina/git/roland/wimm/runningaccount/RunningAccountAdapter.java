@@ -5,13 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -28,14 +33,19 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     private List<String> groupNames = new ArrayList<>();
 
+    private String dateToday = null;
+
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
+
     public RunningAccountAdapter(Context context, Map<String, List<RunningAccount>> datas) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.datas = datas;
         if (datas != null) {
             groupNames.addAll(datas.keySet());
-            Collections.sort(groupNames);
+            sortGroupNames();
         }
+        dateToday = simpleDateFormat.format(new Date());
     }
 
     @Override
@@ -76,17 +86,42 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        GroupViewHolder groupViewHolder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.layout_group_running_account, null);
+            groupViewHolder = new GroupViewHolder(convertView);
+            convertView.setTag(groupViewHolder);
+        } else {
+            groupViewHolder = (GroupViewHolder) convertView.getTag();
         }
+
+        if (dateToday.equals(groupNames.get(groupPosition))) {
+            groupViewHolder.tvDate.setText(R.string.str_today);
+        } else {
+            groupViewHolder.tvDate.setText(groupNames.get(groupPosition));
+        }
+
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        ChildViewHolder childViewHolder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.layout_item_running_account, null);
+            childViewHolder = new ChildViewHolder(convertView);
+            convertView.setTag(childViewHolder);
+        } else {
+            childViewHolder = (ChildViewHolder) convertView.getTag();
         }
+
+        RunningAccount item = (RunningAccount) getChild(groupPosition, childPosition);
+
+        childViewHolder.tvAmount.setTextColor(context.getResources().getColor(item.getAmount() < 0 ? R.color.red : R.color.green));
+
+        childViewHolder.tvAmount.setText(String.valueOf(item.getAmount()));
+        childViewHolder.tvRemark.setText(item.getRemark());
+
         return convertView;
     }
 
@@ -99,8 +134,35 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
     public void notifyDataSetChanged() {
         if (datas != null) {
             groupNames.addAll(datas.keySet());
-            Collections.sort(groupNames);
+            sortGroupNames();
         }
         super.notifyDataSetChanged();
+    }
+
+    private class GroupViewHolder {
+        TextView tvDate;
+
+        GroupViewHolder(View v) {
+            this.tvDate = (TextView) v.findViewById(R.id.tv_date);
+        }
+    }
+
+    private class ChildViewHolder {
+        TextView tvAmount;
+        TextView tvRemark;
+
+        ChildViewHolder(View v) {
+            this.tvAmount = (TextView) v.findViewById(R.id.tv_amount);
+            this.tvRemark = (TextView) v.findViewById(R.id.tv_remark);
+        }
+    }
+
+    private void sortGroupNames() {
+        Collections.sort(groupNames, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
     }
 }

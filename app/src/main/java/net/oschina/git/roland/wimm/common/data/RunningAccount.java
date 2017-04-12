@@ -18,6 +18,8 @@ import java.util.List;
 @Table(name = "RunningAccount")
 public class RunningAccount extends BaseDbObj {
 
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+
     @Column(name = "id", isId = true)
     private int id;
 

@@ -71,7 +71,7 @@ public class RunningAccountFragment extends Fragment {
     }
 
     private void filterData() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
         for (RunningAccount item : datas) {
             String strDate = dateFormat.format(new Date(item.getTimeStamp()));
             if (!filteredDatas.containsKey(strDate)) {
@@ -85,38 +85,57 @@ public class RunningAccountFragment extends Fragment {
      * 假数据
      */
     private void makeFakeData() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
         String userId = WIMMApplication.getApplication().getmUser().getUserId();
 
         try {
             RunningAccount item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-03-21").getTime());
+            item.setAmount(100);
+            item.setRemark("工资");
             datas.add(item);
 
             item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-05-15").getTime());
+            item.setAmount(-100);
+            item.setRemark("买衣服");
             datas.add(item);
 
             item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
+            item.setAmount(-100);
+            item.setRemark("吃饭");
             datas.add(item);
 
             item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
+            item.setAmount(100);
+            item.setRemark("工资");
             datas.add(item);
 
             item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-03-14").getTime());
+            item.setAmount(100);
+            item.setRemark("工资");
             datas.add(item);
 
             item = new RunningAccount();
             item.setUserId(userId);
             item.setTimeStamp(dateFormat.parse("2016-03-22").getTime());
+            item.setAmount(100);
+            item.setRemark("工资");
+            datas.add(item);
+
+            item = new RunningAccount();
+            item.setUserId(userId);
+            item.setTimeStamp(System.currentTimeMillis());
+            item.setAmount(100);
+            item.setRemark("工资");
             datas.add(item);
         } catch (ParseException e) {
             e.printStackTrace();

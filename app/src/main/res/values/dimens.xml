@@ -9,4 +9,10 @@
     <dimen name="std_text_size_big">16sp</dimen>
     <!-- 用于少数重要标题，主要用于action bar及button -->
     <dimen name="std_text_size_huge">18sp</dimen>
+
+    <dimen name="margin_value_tiny">5dp</dimen>
+    <dimen name="margin_value_small">10dp</dimen>
+    <dimen name="margin_value_normal">15dp</dimen>
+    <dimen name="margin_value_big">20dp</dimen>
+    <dimen name="margin_value_huge">30dp</dimen>
 </resources>

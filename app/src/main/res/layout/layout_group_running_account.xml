@@ -2,10 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <TextView
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Group"/>
+        android:layout_marginLeft="@dimen/margin_value_big"
+        android:layout_marginStart="@dimen/margin_value_big"
+        android:textColor="@color/cpb_blue"
+        android:textSize="@dimen/std_text_size_huge"
+        android:text="2016-04-16"/>
 </LinearLayout>
