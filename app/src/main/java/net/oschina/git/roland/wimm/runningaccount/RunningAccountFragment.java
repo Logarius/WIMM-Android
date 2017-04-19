@@ -3,7 +3,6 @@ package net.oschina.git.roland.wimm.runningaccount;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,9 @@ import android.widget.ImageView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
+import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,6 +41,8 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
     private List<RunningAccount> datas = new ArrayList<>();
 
     private Map<String, List<RunningAccount>> filteredDatas = new HashMap<>();
+
+    private Account account = WIMMApplication.getApplication().getmAccount();
 
     @Nullable
     @Override
@@ -76,7 +77,7 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
             filterData();
         }
 
-        adapter.notifyDataSetChanged();
+        refreshList();
     }
 
     private void filterData() {
@@ -107,15 +108,25 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
 
     private AddRunningAccountDialog.OnNewRunningAccountAddListener onNewRunningAccountAddListener = new AddRunningAccountDialog.OnNewRunningAccountAddListener() {
         @Override
-        public void onNewRunningAccount(RunningAccount account) {
-            datas.add(account);
+        public void onNewRunningAccount(RunningAccount runningAccount) {
+            runningAccount.setUserId(account.getUserId());
+            runningAccount.saveOrUpdate();
+
+            account.add(runningAccount.getAmount());
+            account.saveOrUpdate();
+
+            datas.add(runningAccount);
             filterData();
-            adapter.notifyDataSetChanged();
+            refreshList();
         }
     };
 
     private void refreshList() {
         adapter.notifyDataSetChanged();
-
+        if (adapter.getGroupCount() > 0) {
+            for (int i = 0; i < adapter.getGroupCount(); i++) {
+                elvRunningAccount.expandGroup(i);
+            }
+        }
     }
 }

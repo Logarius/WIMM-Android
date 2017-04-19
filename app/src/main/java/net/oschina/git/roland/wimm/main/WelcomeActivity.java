@@ -28,7 +28,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initComp() {
-        welcomeHandler.sendEmptyMessageDelayed(0, 2000);
+        welcomeHandler.sendEmptyMessageDelayed(0, 1000);
     }
 
     @Override

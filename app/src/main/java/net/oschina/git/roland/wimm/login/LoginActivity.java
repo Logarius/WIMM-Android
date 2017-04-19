@@ -88,6 +88,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     Account account = new Account();
                     account.setUserId(userId);
                     account.saveOrUpdate();
+                    application.setmAccount(account);
 
                     toMainActivity();
                 }
@@ -99,6 +100,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     Toast.makeText(LoginActivity.this, R.string.warning_userid_password_error, Toast.LENGTH_SHORT).show();
                 } else {
                     application.setmUser(temp);
+                    application.setmAccount(Account.findByUserId(temp.getUserId()));
                     toMainActivity();
                 }
                 break;

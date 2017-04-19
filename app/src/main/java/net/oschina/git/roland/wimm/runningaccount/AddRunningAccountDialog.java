@@ -99,7 +99,7 @@ class AddRunningAccountDialog {
     }
 
     public interface OnNewRunningAccountAddListener {
-        void onNewRunningAccount(RunningAccount account);
+        void onNewRunningAccount(RunningAccount runningAccount);
     }
 
     void show() {

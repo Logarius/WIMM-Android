@@ -5,10 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.runningaccount.RunningAccountFragment;
-import net.oschina.git.roland.wimm.settings.SettingsFragment;
-import net.oschina.git.roland.wimm.statistics.StatisticsFragment;
+import java.util.List;
 
 /**
  * Created by Roland on 2017/4/10.
@@ -20,47 +17,27 @@ class MainActivityPagerAdapter extends FragmentPagerAdapter {
 
     private String[] titles = null;
 
-    private StatisticsFragment statisticsFragment;
-
-    private RunningAccountFragment runningAcountFragment;
-
-    private SettingsFragment settingsFragment;
+    private List<Fragment> fragments;
 
     MainActivityPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;
+    }
 
-        titles = new String[] {
-                mContext.getString(R.string.str_statistics),
-                mContext.getString(R.string.str_running_acount),
-                mContext.getString(R.string.str_settings)
-        };
+    public void setTitles(String[] titles) {
+        this.titles = titles;
+    }
+
+    public void setFragments(List<Fragment> fragments) {
+        this.fragments = fragments;
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                if (statisticsFragment == null) {
-                    statisticsFragment = new StatisticsFragment();
-                }
-                return statisticsFragment;
-
-            case 1:
-                if (runningAcountFragment == null) {
-                    runningAcountFragment = new RunningAccountFragment();
-                }
-                return runningAcountFragment;
-
-            case 2:
-                if (settingsFragment == null) {
-                    settingsFragment = new SettingsFragment();
-                }
-                return settingsFragment;
-
-            default:
-                return null;
+        if (position >= 0 && position < fragments.size()) {
+            return fragments.get(position);
         }
+        return null;
     }
 
     @Override

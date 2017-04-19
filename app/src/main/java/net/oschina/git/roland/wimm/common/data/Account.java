@@ -41,6 +41,10 @@ public class Account extends BaseDbObj {
         this.amount = NumericUtils.getRoundDoubleValue(amount, 2);
     }
 
+    public void add(double amount) {
+        this.amount += amount;
+    }
+
     public static Account findByUserId(String userId) {
         DbManager dbManager = x.getDb(WIMMApplication.getApplication().getDaoConfig());
         Account result = null;

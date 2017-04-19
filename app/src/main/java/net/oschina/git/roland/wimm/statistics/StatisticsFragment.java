@@ -29,7 +29,7 @@ public class StatisticsFragment extends Fragment {
 
     private User user = WIMMApplication.getApplication().getmUser();
 
-    private Account account;
+    private Account account = WIMMApplication.getApplication().getmAccount();
 
     @Nullable
     @Override
@@ -51,10 +51,11 @@ public class StatisticsFragment extends Fragment {
     }
 
     private void initData() {
-        account = Account.findByUserId(user.getUserId());
-        if (account != null) {
-            tvName.setText(user.getName());
-            tvAmount.setText(String.valueOf(account.getAmount()));
-        }
+        tvName.setText(user.getName());
+        tvAmount.setText(String.valueOf(account.getAmount()));
+    }
+
+    public void notifyAccountChanged() {
+        tvAmount.setText(String.valueOf(account.getAmount()));
     }
 }
