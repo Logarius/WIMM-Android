@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.MainActivity" />
+        <activity android:name=".rental.RentalAssistantActivity"/>
     </application>
 
 </manifest>

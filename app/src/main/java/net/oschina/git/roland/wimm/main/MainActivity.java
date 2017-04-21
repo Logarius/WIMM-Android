@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
+import net.oschina.git.roland.wimm.function.FunctionsFragment;
 import net.oschina.git.roland.wimm.runningaccount.RunningAccountFragment;
 import net.oschina.git.roland.wimm.settings.SettingsFragment;
 import net.oschina.git.roland.wimm.statistics.StatisticsFragment;
@@ -53,11 +54,13 @@ public class MainActivity extends BaseActivity {
         fragments = new ArrayList<>();
         fragments.add(new StatisticsFragment());
         fragments.add(new RunningAccountFragment());
+        fragments.add(new FunctionsFragment());
         fragments.add(new SettingsFragment());
 
         titles = new String[] {
                 getString(R.string.str_statistics),
                 getString(R.string.str_running_acount),
+                getString(R.string.str_functions),
                 getString(R.string.str_settings)
         };
 
