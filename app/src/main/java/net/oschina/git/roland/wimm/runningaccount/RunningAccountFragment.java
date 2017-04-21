@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
+import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 
@@ -82,7 +83,7 @@ public class RunningAccountFragment extends Fragment implements View.OnClickList
 
     private void filterData() {
         filteredDatas.clear();
-        SimpleDateFormat dateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
         for (RunningAccount item : datas) {
             String strDate = dateFormat.format(new Date(item.getTimeStamp()));
             if (!filteredDatas.containsKey(strDate)) {

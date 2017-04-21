@@ -16,10 +16,7 @@ import org.xutils.x;
 @Table(name = "Account")
 public class Account extends BaseDbObj {
 
-    @Column(name = "id", isId = true)
-    private int id;
-
-    @Column(name = "userId")
+    @Column(name = "userId", isId = true)
     private String userId = "";
 
     @Column(name = "amount")

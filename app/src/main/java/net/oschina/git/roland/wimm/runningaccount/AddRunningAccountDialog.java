@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import net.oschina.git.roland.wimm.R;
+import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
 import net.oschina.git.roland.wimm.common.view.DateSelectDialog;
@@ -64,7 +65,7 @@ class AddRunningAccountDialog {
             }
         });
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
         String strDateToday = simpleDateFormat.format(new Date());
         etDate.setText(strDateToday);
     }
@@ -80,7 +81,7 @@ class AddRunningAccountDialog {
             if (onNewRunningAccountAddListener != null) {
                 double amount = Double.valueOf(etAmount.getText().toString());
                 RunningAccount result = new RunningAccount();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
                 try {
                     result.setTimeStamp(simpleDateFormat.parse(etDate.getText().toString()).getTime());
                 } catch (ParseException e) {

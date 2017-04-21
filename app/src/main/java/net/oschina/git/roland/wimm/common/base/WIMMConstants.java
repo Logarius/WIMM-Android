@@ -13,4 +13,9 @@ public class WIMMConstants {
 
     public static final String SP_KEY_LAST_LOGIN_USER = "SP_KEY_LAST_LOGIN_USER";
 
+    /**
+     * RunningAccount Date Format
+     */
+    public static final String RUNNING_ACCOUNT_DATE_FORMAT = "yyyy-MM-dd";
+
 }

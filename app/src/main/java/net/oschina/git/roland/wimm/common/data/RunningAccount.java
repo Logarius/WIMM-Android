@@ -18,8 +18,6 @@ import java.util.List;
 @Table(name = "RunningAccount")
 public class RunningAccount extends BaseDbObj {
 
-    public static final String DATE_FORMAT = "yyyy-MM-dd";
-
     @Column(name = "id", isId = true)
     private int id;
 
@@ -39,13 +37,13 @@ public class RunningAccount extends BaseDbObj {
      * 收支
      */
     @Column(name = "amount")
-    private double amount;
+    private double amount = 0;
 
     /**
      * 备注
      */
     @Column(name = "remark")
-    private String remark;
+    private String remark = "";
 
     public int getId() {
         return id;

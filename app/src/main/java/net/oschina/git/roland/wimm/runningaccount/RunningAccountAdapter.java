@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
+import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +36,7 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     private String dateToday = null;
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(RunningAccount.DATE_FORMAT, Locale.US);
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
 
     public RunningAccountAdapter(Context context, Map<String, List<RunningAccount>> datas) {
         this.context = context;
