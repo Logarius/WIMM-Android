@@ -2,19 +2,19 @@ package net.oschina.git.roland.wimm.settings;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
+import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 
 /**
  * Created by Roland on 2017/4/10.
  */
 
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends HeaderFragment {
 
     @Nullable
     @Override
@@ -25,5 +25,12 @@ public class SettingsFragment extends Fragment {
         textView.setText("SettingsFragment");
 
         return view;
+    }
+
+    @Override
+    public void refreshHeader() {
+        header.getLeftFun().setVisibility(View.INVISIBLE);
+        header.getRightFunc().setVisibility(View.INVISIBLE);
+        header.setTitle(R.string.str_settings);
     }
 }

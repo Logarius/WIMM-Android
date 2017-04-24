@@ -9,6 +9,8 @@ import android.view.KeyEvent;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
+import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.view.CommonHeader;
 import net.oschina.git.roland.wimm.function.FunctionsFragment;
 import net.oschina.git.roland.wimm.runningaccount.RunningAccountFragment;
 import net.oschina.git.roland.wimm.settings.SettingsFragment;
@@ -27,6 +29,9 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    @ViewInject(R.id.header)
+    private CommonHeader header;
 
     @ViewInject(R.id.tabLayout)
     private TabLayout tabLayout;
@@ -58,6 +63,12 @@ public class MainActivity extends BaseActivity {
         fragments.add(new FunctionsFragment());
         fragments.add(new SettingsFragment());
 
+        for (Fragment fragment : fragments) {
+            if (fragment instanceof HeaderFragment) {
+                ((HeaderFragment) fragment).setHeader(header);
+            }
+        }
+
         String[] titles = new String[]{
                 getString(R.string.str_statistics),
                 getString(R.string.str_running_acount),
@@ -68,6 +79,8 @@ public class MainActivity extends BaseActivity {
         adapter.setTitles(titles);
         adapter.setFragments(fragments);
         adapter.notifyDataSetChanged();
+
+        ((HeaderFragment) fragments.get(0)).refreshHeader();
     }
 
     @Override
@@ -89,6 +102,10 @@ public class MainActivity extends BaseActivity {
         public void onPageSelected(int position) {
             if (fragments.get(position) instanceof StatisticsFragment) {
                 ((StatisticsFragment) fragments.get(position)).notifyAccountChanged();
+            }
+
+            if (fragments.get(position) instanceof HeaderFragment) {
+                ((HeaderFragment) fragments.get(position)).refreshHeader();
             }
         }
 

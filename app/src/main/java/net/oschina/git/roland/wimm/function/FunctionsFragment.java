@@ -3,20 +3,20 @@ package net.oschina.git.roland.wimm.function;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import net.oschina.git.roland.wimm.R;
+import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 import net.oschina.git.roland.wimm.function.rental.RentalAssistantActivity;
 
 /**
  * Created by Roland on 2017/4/21.
  */
 
-public class FunctionsFragment extends Fragment implements View.OnClickListener {
+public class FunctionsFragment extends HeaderFragment implements View.OnClickListener {
 
     private static final String TAG = FunctionsFragment.class.getSimpleName();
 
@@ -57,5 +57,12 @@ public class FunctionsFragment extends Fragment implements View.OnClickListener 
         if (intent != null) {
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void refreshHeader() {
+        header.getLeftFun().setVisibility(View.INVISIBLE);
+        header.getRightFunc().setVisibility(View.INVISIBLE);
+        header.setTitle(R.string.str_functions);
     }
 }

@@ -15,4 +15,6 @@
     <dimen name="margin_value_normal">15dp</dimen>
     <dimen name="margin_value_big">20dp</dimen>
     <dimen name="margin_value_huge">30dp</dimen>
+
+    <dimen name="common_header_height">40dp</dimen>
 </resources>
