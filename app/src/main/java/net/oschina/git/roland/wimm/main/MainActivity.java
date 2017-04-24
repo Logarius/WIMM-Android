@@ -1,8 +1,13 @@
 package net.oschina.git.roland.wimm.main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.inputmethodservice.Keyboard;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.KeyEvent;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
@@ -69,6 +74,15 @@ public class MainActivity extends BaseActivity {
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            confirmExit();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
     private ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -87,5 +101,19 @@ public class MainActivity extends BaseActivity {
 
         }
     };
+
+    private void confirmExit() {
+        Log.d(TAG, "show confirmExit dialog");
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setMessage(R.string.confirm_exit);
+        dialog.setNegativeButton(R.string.str_cancel, null);
+        dialog.setPositiveButton(R.string.str_confirm, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        dialog.show();
+    }
 
 }
