@@ -1,6 +1,5 @@
 package net.oschina.git.roland.wimm.main;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,22 +12,19 @@ import java.util.List;
 
 class MainActivityPagerAdapter extends FragmentPagerAdapter {
 
-    private Context mContext;
-
     private String[] titles = null;
 
     private List<Fragment> fragments;
 
-    MainActivityPagerAdapter(FragmentManager fm, Context context) {
+    MainActivityPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.mContext = context;
     }
 
-    public void setTitles(String[] titles) {
+    void setTitles(String[] titles) {
         this.titles = titles;
     }
 
-    public void setFragments(List<Fragment> fragments) {
+    void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;
     }
 

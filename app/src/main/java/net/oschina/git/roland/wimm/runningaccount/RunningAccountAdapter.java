@@ -24,7 +24,7 @@ import java.util.Map;
  * Created by Roland on 2017/4/10.
  */
 
-public class RunningAccountAdapter extends BaseExpandableListAdapter {
+class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     private Context context;
 
@@ -36,9 +36,7 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
 
     private String dateToday = null;
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
-
-    public RunningAccountAdapter(Context context, Map<String, List<RunningAccount>> datas) {
+    RunningAccountAdapter(Context context, Map<String, List<RunningAccount>> datas) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.datas = datas;
@@ -46,6 +44,7 @@ public class RunningAccountAdapter extends BaseExpandableListAdapter {
             groupNames.addAll(datas.keySet());
             sortGroupNames();
         }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
         dateToday = simpleDateFormat.format(new Date());
     }
 

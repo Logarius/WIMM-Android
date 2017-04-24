@@ -2,11 +2,9 @@ package net.oschina.git.roland.wimm.main;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.inputmethodservice.Keyboard;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.KeyEvent;
 
 import net.oschina.git.roland.wimm.R;
@@ -36,15 +34,13 @@ public class MainActivity extends BaseActivity {
     @ViewInject(R.id.viewPager)
     private ViewPager viewPager;
 
-    private String[] titles;
-
     private List<Fragment> fragments;
 
     private MainActivityPagerAdapter adapter = null;
 
     @Override
     protected void initComp() {
-        adapter = new MainActivityPagerAdapter(getSupportFragmentManager(), this);
+        adapter = new MainActivityPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -62,7 +58,7 @@ public class MainActivity extends BaseActivity {
         fragments.add(new FunctionsFragment());
         fragments.add(new SettingsFragment());
 
-        titles = new String[] {
+        String[] titles = new String[]{
                 getString(R.string.str_statistics),
                 getString(R.string.str_running_acount),
                 getString(R.string.str_functions),
@@ -103,7 +99,6 @@ public class MainActivity extends BaseActivity {
     };
 
     private void confirmExit() {
-        Log.d(TAG, "show confirmExit dialog");
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setMessage(R.string.confirm_exit);
         dialog.setNegativeButton(R.string.str_cancel, null);

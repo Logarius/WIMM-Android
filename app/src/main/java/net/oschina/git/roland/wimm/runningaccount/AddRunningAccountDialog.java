@@ -95,11 +95,11 @@ class AddRunningAccountDialog {
         }
     };
 
-    public void setOnNewRunningAccountAddListener(OnNewRunningAccountAddListener onNewRunningAccountAddListener) {
+    void setOnNewRunningAccountAddListener(OnNewRunningAccountAddListener onNewRunningAccountAddListener) {
         this.onNewRunningAccountAddListener = onNewRunningAccountAddListener;
     }
 
-    public interface OnNewRunningAccountAddListener {
+    interface OnNewRunningAccountAddListener {
         void onNewRunningAccount(RunningAccount runningAccount);
     }
 

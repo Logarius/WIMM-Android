@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.rental.RentalAssistantActivity;
+import net.oschina.git.roland.wimm.function.rental.RentalAssistantActivity;
 
 /**
  * Created by Roland on 2017/4/21.

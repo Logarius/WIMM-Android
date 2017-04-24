@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.rental;
+package net.oschina.git.roland.wimm.function.rental;
 
 import android.os.Bundle;
 
