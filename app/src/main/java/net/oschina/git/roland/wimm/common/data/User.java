@@ -10,17 +10,27 @@ import org.xutils.ex.DbException;
 import org.xutils.x;
 
 /**
+ * 用户表
  * Created by Roland on 2017/4/10.
  */
 @Table(name = "User")
 public class User extends BaseDbObj {
 
+    /**
+     * 用户名
+     */
     @Column(name = "userId", isId = true)
     private String userId = "";
 
+    /**
+     * 密码
+     */
     @Column(name = "password")
     private String password = "";
 
+    /**
+     * 姓名
+     */
     @Column(name = "name")
     private String name = "";
 

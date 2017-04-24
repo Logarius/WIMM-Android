@@ -13,6 +13,7 @@ import org.xutils.x;
 import java.util.List;
 
 /**
+ * 流水记录表
  * Created by Roland on 2017/4/10.
  */
 @Table(name = "RunningAccount")

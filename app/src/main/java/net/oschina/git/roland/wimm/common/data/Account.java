@@ -11,14 +11,21 @@ import org.xutils.ex.DbException;
 import org.xutils.x;
 
 /**
+ * 用户总账户表
  * Created by Roland on 2017/4/10.
  */
 @Table(name = "Account")
 public class Account extends BaseDbObj {
 
+    /**
+     * 用户名
+     */
     @Column(name = "userId", isId = true)
     private String userId = "";
 
+    /**
+     * 余额
+     */
     @Column(name = "amount")
     private double amount = 0;
 
