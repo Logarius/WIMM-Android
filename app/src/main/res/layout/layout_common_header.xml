@@ -4,13 +4,21 @@
     android:layout_height="@dimen/common_header_height"
     android:background="@color/colorPrimary">
 
+    <ImageView
+        android:id="@+id/iv_leftFunc"
+        android:layout_width="@dimen/header_icon_size"
+        android:layout_height="@dimen/header_icon_size"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_value_big" />
+
     <TextView
         android:id="@+id/tv_leftFunc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margin_value_big"
+        android:layout_toRightOf="@+id/iv_leftFunc"
         android:textColor="@android:color/white"
         android:textSize="@dimen/std_text_size_big" />
 
@@ -26,10 +34,18 @@
         android:id="@+id/tv_rightFunc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/margin_value_big"
+        android:layout_toLeftOf="@+id/iv_rightFunc"
         android:textColor="@android:color/white"
         android:textSize="@dimen/std_text_size_big" />
+
+    <ImageView
+        android:id="@+id/iv_rightFunc"
+        android:layout_width="@dimen/header_icon_size"
+        android:layout_height="@dimen/header_icon_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_value_big" />
 
 </RelativeLayout>

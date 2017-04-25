@@ -80,7 +80,9 @@ public class MainActivity extends BaseActivity {
         adapter.setFragments(fragments);
         adapter.notifyDataSetChanged();
 
-        ((HeaderFragment) fragments.get(0)).refreshHeader();
+        if (fragments.get(0) instanceof HeaderFragment) {
+            ((HeaderFragment) fragments.get(0)).refreshHeader();
+        }
     }
 
     @Override

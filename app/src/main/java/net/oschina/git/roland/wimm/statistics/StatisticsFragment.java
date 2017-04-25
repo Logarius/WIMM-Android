@@ -61,8 +61,7 @@ public class StatisticsFragment extends HeaderFragment {
 
     @Override
     public void refreshHeader() {
-        header.getLeftFun().setVisibility(View.INVISIBLE);
-        header.getRightFunc().setVisibility(View.INVISIBLE);
+        header.reset();
         header.setTitle(R.string.str_statistics);
     }
 }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
@@ -14,6 +13,7 @@ import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
+import net.oschina.git.roland.wimm.common.view.CommonHeader;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,15 +27,13 @@ import java.util.Map;
  * Created by Roland on 2017/4/10.
  */
 
-public class RunningAccountFragment extends HeaderFragment implements View.OnClickListener {
+public class RunningAccountFragment extends HeaderFragment {
 
     private static final String TAG = RunningAccount.class.getSimpleName();
 
     private View contentView;
 
     private ExpandableListView elvRunningAccount;
-
-    private ImageView ivAdd;
 
     private RunningAccountAdapter adapter;
 
@@ -50,22 +48,16 @@ public class RunningAccountFragment extends HeaderFragment implements View.OnCli
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(R.layout.fragment_running_account, container, false);
         initComp();
-        initListener();
         initData();
         return contentView;
     }
 
     private void initComp() {
         adapter = new RunningAccountAdapter(getContext(), filteredDatas);
-        ivAdd = (ImageView) contentView.findViewById(R.id.iv_add);
         elvRunningAccount = (ExpandableListView) contentView.findViewById(R.id.elv_running_account);
         elvRunningAccount.setAdapter(adapter);
         elvRunningAccount.setDivider(null);
         elvRunningAccount.setGroupIndicator(null);
-    }
-
-    private void initListener() {
-        ivAdd.setOnClickListener(this);
     }
 
     private void initData() {
@@ -90,20 +82,6 @@ public class RunningAccountFragment extends HeaderFragment implements View.OnCli
                 filteredDatas.put(strDate, new ArrayList<RunningAccount>());
             }
             filteredDatas.get(strDate).add(item);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_add:
-                AddRunningAccountDialog dialog = new AddRunningAccountDialog(getContext());
-                dialog.setOnNewRunningAccountAddListener(onNewRunningAccountAddListener);
-                dialog.show();
-                break;
-
-            default:
-                break;
         }
     }
 
@@ -133,8 +111,20 @@ public class RunningAccountFragment extends HeaderFragment implements View.OnCli
 
     @Override
     public void refreshHeader() {
-        header.getLeftFun().setVisibility(View.INVISIBLE);
-        header.getRightFunc().setVisibility(View.INVISIBLE);
+        header.reset();
         header.setTitle(R.string.str_running_acount);
+        header.setRightFuncIcon(R.drawable.plus);
+        header.setCommonHeaderListener(commonHeaderListener);
     }
+
+    private CommonHeader.CommonHeaderListener commonHeaderListener = new CommonHeader.CommonHeaderListener() {
+        @Override
+        public void onClick(int viewId) {
+            if (viewId == CommonHeader.VIEW_IV_RIGHT_FUNC) {
+                AddRunningAccountDialog dialog = new AddRunningAccountDialog(getContext());
+                dialog.setOnNewRunningAccountAddListener(onNewRunningAccountAddListener);
+                dialog.show();
+            }
+        }
+    };
 }
