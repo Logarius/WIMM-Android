@@ -16,6 +16,8 @@
     <dimen name="margin_value_big">20dp</dimen>
     <dimen name="margin_value_huge">30dp</dimen>
 
+    <dimen name="navigation_main_header_height">150dp</dimen>
+
     <dimen name="common_header_height">40dp</dimen>
     <dimen name="header_icon_size">30dp</dimen>
 </resources>

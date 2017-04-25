@@ -29,7 +29,7 @@ public class SettingsFragment extends HeaderFragment {
 
     @Override
     public void refreshHeader() {
-        header.reset();
+        super.refreshHeader();
         header.setTitle(R.string.str_settings);
     }
 }

@@ -12,17 +12,14 @@ import org.xutils.db.annotation.Table;
 @Table(name = "Apartment")
 public class Apartment extends BaseDbObj {
 
-    /**
-     * 租房记录ID
-     */
-    @Column(name = "apartmentId", isId = true)
-    private String apartmentId = "";
+    @Column(name = "id", isId = true)
+    private int id;
 
     /**
      * 地址
      */
     @Column(name = "address")
-    private String address = "";
+    private int address = -1;
 
     /**
      * 入住时间
@@ -54,21 +51,6 @@ public class Apartment extends BaseDbObj {
     @Column(name = "interval")
     private int interval = 1;
 
-    public String getApartmentId() {
-        return apartmentId;
-    }
-
-    public void setApartmentId(String apartmentId) {
-        this.apartmentId = apartmentId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public long getRentDateStart() {
         return rentDateStart;
@@ -108,5 +90,21 @@ public class Apartment extends BaseDbObj {
 
     public void setInterval(int interval) {
         this.interval = interval;
+    }
+
+    public int getAddress() {
+        return address;
+    }
+
+    public void setAddress(int address) {
+        this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -9,7 +9,9 @@ import org.xutils.x;
 /**
  * Created by Roland on 2017/4/10.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
+
+    protected final String TAG = getClass().getSimpleName();
 
     protected WIMMApplication application = WIMMApplication.getApplication();
 
@@ -23,9 +25,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
-    protected abstract void initComp();
+    protected void initComp() {}
 
-    protected abstract void initListener();
+    protected void initListener() {}
 
-    protected abstract void initData();
+    protected void initData() {}
 }

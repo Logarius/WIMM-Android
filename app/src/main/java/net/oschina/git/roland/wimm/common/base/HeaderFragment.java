@@ -8,13 +8,16 @@ import net.oschina.git.roland.wimm.common.view.CommonHeader;
  * Created by Roland on 2017/4/24.
  */
 
-public abstract class HeaderFragment extends Fragment {
+public class HeaderFragment extends Fragment {
 
     protected CommonHeader header;
 
-    public void setHeader(CommonHeader header) {
+    public HeaderFragment setHeader(CommonHeader header) {
         this.header = header;
+        return this;
     }
 
-    public abstract void refreshHeader();
+    public void refreshHeader() {
+        header.reset();
+    }
 }

@@ -27,9 +27,7 @@ import java.util.Map;
  * Created by Roland on 2017/4/10.
  */
 
-public class RunningAccountFragment extends HeaderFragment {
-
-    private static final String TAG = RunningAccount.class.getSimpleName();
+public class RunningAccountFragment extends HeaderFragment implements CommonHeader.CommonHeaderListener {
 
     private View contentView;
 
@@ -111,20 +109,18 @@ public class RunningAccountFragment extends HeaderFragment {
 
     @Override
     public void refreshHeader() {
-        header.reset();
+        super.refreshHeader();
         header.setTitle(R.string.str_running_acount);
         header.setRightFuncIcon(R.drawable.plus);
-        header.setCommonHeaderListener(commonHeaderListener);
+        header.setCommonHeaderListener(this);
     }
 
-    private CommonHeader.CommonHeaderListener commonHeaderListener = new CommonHeader.CommonHeaderListener() {
-        @Override
-        public void onClick(int viewId) {
-            if (viewId == CommonHeader.VIEW_IV_RIGHT_FUNC) {
-                AddRunningAccountDialog dialog = new AddRunningAccountDialog(getContext());
-                dialog.setOnNewRunningAccountAddListener(onNewRunningAccountAddListener);
-                dialog.show();
-            }
+    @Override
+    public void onClick(int witch) {
+        if (witch == CommonHeader.VIEW_IV_RIGHT_FUNC) {
+            AddRunningAccountDialog dialog = new AddRunningAccountDialog(getContext());
+            dialog.setOnNewRunningAccountAddListener(onNewRunningAccountAddListener);
+            dialog.show();
         }
-    };
+    }
 }

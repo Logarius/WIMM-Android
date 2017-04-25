@@ -108,7 +108,7 @@ public class CommonHeader extends RelativeLayout implements View.OnClickListener
         tvRightFunc.setText(text);
     }
 
-    public void setRightFuncText(Drawable icon) {
+    public void setRightFuncIcon(Drawable icon) {
         ivRightFunc.setVisibility(VISIBLE);
         ivRightFunc.setImageDrawable(icon);
     }
@@ -153,6 +153,6 @@ public class CommonHeader extends RelativeLayout implements View.OnClickListener
     }
 
     public interface CommonHeaderListener {
-        void onClick(int viewId);
+        void onClick(int witch);
     }
 }

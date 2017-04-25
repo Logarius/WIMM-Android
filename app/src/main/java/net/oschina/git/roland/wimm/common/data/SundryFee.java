@@ -13,11 +13,14 @@ import org.xutils.db.annotation.Table;
 @Table(name = "SundryFee")
 public class SundryFee extends BaseDbObj {
 
+    @Column(name = "id", isId = true)
+    private int id;
+
     /**
-     * 租房记录ID
+     * 地址
      */
-    @Column(name = "apartmentId")
-    private String apartmentId = "";
+    @Column(name = "address")
+    private int address = -1;
 
     /**
      * 缴纳时间
@@ -32,12 +35,6 @@ public class SundryFee extends BaseDbObj {
     private String name = "";
 
     /**
-     * 上次读数
-     */
-    @Column(name = "lastReading")
-    private double lastReading = 0;
-
-    /**
      * 读数
      */
     @Column(name = "reading")
@@ -48,14 +45,6 @@ public class SundryFee extends BaseDbObj {
      */
     @Column(name = "fee")
     private double fee = 0;
-
-    public String getApartmentId() {
-        return apartmentId;
-    }
-
-    public void setApartmentId(String apartmentId) {
-        this.apartmentId = apartmentId;
-    }
 
     public long getTime() {
         return time;
@@ -73,14 +62,6 @@ public class SundryFee extends BaseDbObj {
         this.name = name;
     }
 
-    public double getLastReading() {
-        return lastReading;
-    }
-
-    public void setLastReading(double lastReading) {
-        this.lastReading = lastReading;
-    }
-
     public double getReading() {
         return reading;
     }
@@ -95,5 +76,21 @@ public class SundryFee extends BaseDbObj {
 
     public void setFee(double fee) {
         this.fee = fee;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAddress() {
+        return address;
+    }
+
+    public void setAddress(int address) {
+        this.address = address;
     }
 }

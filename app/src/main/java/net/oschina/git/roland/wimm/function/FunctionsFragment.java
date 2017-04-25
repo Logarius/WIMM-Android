@@ -18,8 +18,6 @@ import net.oschina.git.roland.wimm.function.rental.RentalAssistantActivity;
 
 public class FunctionsFragment extends HeaderFragment implements View.OnClickListener {
 
-    private static final String TAG = FunctionsFragment.class.getSimpleName();
-
     private View contentView;
 
     private Button btnRentalAssistant;
@@ -61,7 +59,7 @@ public class FunctionsFragment extends HeaderFragment implements View.OnClickLis
 
     @Override
     public void refreshHeader() {
-        header.reset();
+        super.refreshHeader();
         header.setTitle(R.string.str_functions);
     }
 }

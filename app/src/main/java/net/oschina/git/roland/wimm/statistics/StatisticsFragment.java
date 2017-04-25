@@ -19,8 +19,6 @@ import net.oschina.git.roland.wimm.common.data.User;
 
 public class StatisticsFragment extends HeaderFragment {
 
-    private static final String TAG = StatisticsFragment.class.getSimpleName();
-
     private View contentView;
 
     private TextView tvName;
@@ -36,7 +34,6 @@ public class StatisticsFragment extends HeaderFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(R.layout.fragment_statistics, container, false);
         initComp();
-        initListener();
         initData();
         return contentView;
     }
@@ -46,22 +43,22 @@ public class StatisticsFragment extends HeaderFragment {
         tvAmount = (TextView) contentView.findViewById(R.id.tv_amount);
     }
 
-    private void initListener() {
-
-    }
-
     private void initData() {
         tvName.setText(user.getName());
         tvAmount.setText(String.valueOf(account.getAmount()));
     }
 
-    public void notifyAccountChanged() {
-        tvAmount.setText(String.valueOf(account.getAmount()));
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            tvAmount.setText(String.valueOf(account.getAmount()));
+        }
     }
 
     @Override
     public void refreshHeader() {
-        header.reset();
-        header.setTitle(R.string.str_statistics);
+        super.refreshHeader();
+        header.setTitle(R.string.str_home);
     }
 }
