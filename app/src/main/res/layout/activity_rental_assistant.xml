@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".function.rental.RentalAssistantActivity">
 
+    <net.oschina.git.roland.wimm.common.view.CommonHeader
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
