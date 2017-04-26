@@ -4,13 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_rental_assistant"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/functions_grid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/std_text_size_normal"
-        android:text="@string/str_rental_assistant"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_value_big"
+        android:layout_marginTop="@dimen/margin_value_big" />
 
 </LinearLayout>

@@ -6,57 +6,50 @@
     android:paddingLeft="@dimen/margin_value_normal"
     android:paddingRight="@dimen/margin_value_normal">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        android:layout_marginTop="@dimen/margin_value_tiny"
-        android:layout_marginBottom="@dimen/margin_value_normal"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/std_text_size_big"
+        android:text="@string/et_label_date"
         android:textColor="@color/green"
-        android:text="@string/et_label_date"/>
+        android:textSize="@dimen/std_text_size_big" />
 
     <EditText
         android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:editable="false"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/std_text_size_normal"
-        android:editable="false"/>
+        android:textSize="@dimen/std_text_size_normal" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/std_text_size_big"
+        android:text="@string/et_label_inout"
         android:textColor="@color/green"
-        android:text="@string/et_label_inout"/>
+        android:textSize="@dimen/std_text_size_big" />
 
     <EditText
         android:id="@+id/et_inout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberSigned|numberDecimal"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/std_text_size_normal"
-        android:inputType="numberSigned|numberDecimal"/>
+        android:textSize="@dimen/std_text_size_normal" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/std_text_size_big"
+        android:text="@string/et_label_remark"
         android:textColor="@color/green"
-        android:text="@string/et_label_remark"/>
+        android:textSize="@dimen/std_text_size_big" />
 
     <EditText
         android:id="@+id/et_remark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/std_text_size_normal"
         android:inputType="text"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/std_text_size_normal" />
 
 </LinearLayout>
