@@ -10,6 +10,9 @@ import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.RunningAccount;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
 
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,9 +24,10 @@ import java.util.Map;
 /**
  * Created by Roland on 2017/4/10.
  */
-
+@ContentView(R.layout.fragment_running_account)
 public class RunningAccountFragment extends HeaderFragment implements CommonHeader.CommonHeaderListener {
 
+    @ViewInject(R.id.elv_running_account)
     private ExpandableListView elvRunningAccount;
 
     private RunningAccountAdapter adapter;
@@ -35,14 +39,8 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
     private Account account = WIMMApplication.getApplication().getmAccount();
 
     @Override
-    protected int getContentViewLayout() {
-        return R.layout.fragment_running_account;
-    }
-
-    @Override
     protected void initComp() {
         adapter = new RunningAccountAdapter(getContext(), filteredDatas);
-        elvRunningAccount = (ExpandableListView) contentView.findViewById(R.id.elv_running_account);
         elvRunningAccount.setAdapter(adapter);
         elvRunningAccount.setDivider(null);
         elvRunningAccount.setGroupIndicator(null);

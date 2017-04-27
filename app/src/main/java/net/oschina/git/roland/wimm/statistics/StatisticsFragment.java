@@ -8,14 +8,19 @@ import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.User;
 
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+
 /**
  * Created by Roland on 2017/4/10.
  */
-
+@ContentView(R.layout.fragment_statistics)
 public class StatisticsFragment extends HeaderFragment {
 
+    @ViewInject(R.id.tv_name)
     private TextView tvName;
 
+    @ViewInject(R.id.tv_amount)
     private TextView tvAmount;
 
     private User user = WIMMApplication.getApplication().getmUser();
@@ -23,14 +28,8 @@ public class StatisticsFragment extends HeaderFragment {
     private Account account = WIMMApplication.getApplication().getmAccount();
 
     @Override
-    protected int getContentViewLayout() {
-        return R.layout.fragment_statistics;
-    }
-
-    @Override
     protected void initComp() {
-        tvName = (TextView) contentView.findViewById(R.id.tv_name);
-        tvAmount = (TextView) contentView.findViewById(R.id.tv_amount);
+
     }
 
     @Override
