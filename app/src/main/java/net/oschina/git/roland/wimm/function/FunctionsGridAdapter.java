@@ -52,7 +52,7 @@ class FunctionsGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-    public void setFunctionsItemClickListener(FunctionsItemClickListener functionsItemClickListener) {
+    void setFunctionsItemClickListener(FunctionsItemClickListener functionsItemClickListener) {
         this.functionsItemClickListener = functionsItemClickListener;
     }
 

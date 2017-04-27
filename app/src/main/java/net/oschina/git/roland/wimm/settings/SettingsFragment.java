@@ -1,30 +1,57 @@
 package net.oschina.git.roland.wimm.settings;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ListView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.base.WIMMApplication;
+import net.oschina.git.roland.wimm.common.data.User;
+import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;
+
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
 
 /**
  * Created by Roland on 2017/4/10.
  */
-
+@ContentView(R.layout.fragment_settings)
 public class SettingsFragment extends HeaderFragment {
 
-    @Nullable
+    @ViewInject(R.id.lv_settings)
+    private ListView lvSettings;
+
+    @ViewInject(R.id.btnFunction)
+    private Button btnFunction;
+
+    private User user = WIMMApplication.getApplication().getmUser();
+
+    private boolean enable = false;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_welcome, container, false);
+    protected void initComp() {
 
-        TextView textView = (TextView) view.findViewById(R.id.text);
-        textView.setText("SettingsFragment");
+    }
 
-        return view;
+    @Override
+    protected void initListener() {
+        btnFunction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enable = !enable;
+                if (enable) {
+                    FunctionsSwitchUtil.getInstance().enableFunction(user.getUserId(), "rental_assistant");
+                } else {
+                    FunctionsSwitchUtil.getInstance().disableFunction(user.getUserId(), "rental_assistant");
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override

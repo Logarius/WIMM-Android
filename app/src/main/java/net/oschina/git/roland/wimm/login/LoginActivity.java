@@ -13,6 +13,7 @@ import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.data.Account;
 import net.oschina.git.roland.wimm.common.data.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
+import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;
 import net.oschina.git.roland.wimm.main.MainActivity;
 
 import org.xutils.view.annotation.ContentView;
@@ -89,6 +90,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     account.setUserId(userId);
                     account.saveOrUpdate();
                     application.setmAccount(account);
+
+                    FunctionsSwitchUtil.getInstance().enableAllFunctions(userId);
 
                     toMainActivity();
                 }

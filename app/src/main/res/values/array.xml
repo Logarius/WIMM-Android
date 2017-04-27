@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="functions_name">
+        <item>rental_assistant</item>
+    </string-array>
+
+    <string-array name="functions_title">
+        <item>@string/str_rental_assistant</item>
+    </string-array>
+
+    <integer-array name="functions_icon_id">
+        <item>@drawable/rental</item>
+    </integer-array>
+
+</resources>

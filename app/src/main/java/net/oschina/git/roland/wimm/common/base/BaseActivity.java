@@ -9,7 +9,7 @@ import org.xutils.x;
 /**
  * Created by Roland on 2017/4/10.
  */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -25,9 +25,9 @@ public class BaseActivity extends AppCompatActivity {
         initData();
     }
 
-    protected void initComp() {}
+    protected abstract void initComp();
 
-    protected void initListener() {}
+    protected abstract void initListener();
 
-    protected void initData() {}
+    protected abstract void initData();
 }

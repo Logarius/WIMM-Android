@@ -1,14 +1,12 @@
 package net.oschina.git.roland.wimm.common.base;
 
-import android.support.v4.app.Fragment;
-
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
 
 /**
  * Created by Roland on 2017/4/24.
  */
 
-public class HeaderFragment extends Fragment {
+public abstract class HeaderFragment extends BaseFragment {
 
     protected CommonHeader header;
 
