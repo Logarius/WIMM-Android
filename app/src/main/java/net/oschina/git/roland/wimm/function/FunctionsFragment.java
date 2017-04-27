@@ -1,13 +1,9 @@
 package net.oschina.git.roland.wimm.function;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
@@ -22,8 +18,6 @@ import java.util.List;
 
 public class FunctionsFragment extends HeaderFragment implements FunctionsItemClickListener {
 
-    private View contentView;
-
     private RecyclerView functionsGrid;
 
     private RecyclerView.LayoutManager mLayoutManager;
@@ -32,13 +26,9 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
 
     private List<FunctionItem> functions;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        contentView = inflater.inflate(R.layout.fragment_functions, container, false);
-        initComp();
-        initData();
-        return contentView;
+    protected int getContentViewLayout() {
+        return R.layout.fragment_functions;
     }
 
     @Override
@@ -47,7 +37,8 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
         header.setTitle(R.string.str_functions);
     }
 
-    private void initComp() {
+    @Override
+    protected void initComp() {
         functions = new ArrayList<>();
         adapter = new FunctionsGridAdapter(getContext(), functions);
         adapter.setFunctionsItemClickListener(this);
@@ -57,7 +48,13 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
         functionsGrid.setAdapter(adapter);
     }
 
-    private void initData() {
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
         FunctionItem functionItem = new FunctionItem(R.string.str_rental_assistant, R.drawable.rental);
         functionItem.setTarget(RentalAssistantActivity.class);
         functions.add(functionItem);

@@ -18,7 +18,7 @@ class FunctionItem {
 
     private Class target;
 
-    public FunctionItem(String title, Drawable icon) {
+    FunctionItem(String title, Drawable icon) {
         this.title = title;
         this.icon = icon;
     }
@@ -49,11 +49,11 @@ class FunctionItem {
         this.icon = icon;
     }
 
-    public void setTarget(Class target) {
+    void setTarget(Class target) {
         this.target = target;
     }
 
-    public Class getTarget() {
+    Class getTarget() {
         return target;
     }
 }

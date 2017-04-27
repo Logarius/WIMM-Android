@@ -1,10 +1,5 @@
 package net.oschina.git.roland.wimm.runningaccount;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
 import net.oschina.git.roland.wimm.R;
@@ -29,8 +24,6 @@ import java.util.Map;
 
 public class RunningAccountFragment extends HeaderFragment implements CommonHeader.CommonHeaderListener {
 
-    private View contentView;
-
     private ExpandableListView elvRunningAccount;
 
     private RunningAccountAdapter adapter;
@@ -41,16 +34,13 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
 
     private Account account = WIMMApplication.getApplication().getmAccount();
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        contentView = inflater.inflate(R.layout.fragment_running_account, container, false);
-        initComp();
-        initData();
-        return contentView;
+    protected int getContentViewLayout() {
+        return R.layout.fragment_running_account;
     }
 
-    private void initComp() {
+    @Override
+    protected void initComp() {
         adapter = new RunningAccountAdapter(getContext(), filteredDatas);
         elvRunningAccount = (ExpandableListView) contentView.findViewById(R.id.elv_running_account);
         elvRunningAccount.setAdapter(adapter);
@@ -58,7 +48,13 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
         elvRunningAccount.setGroupIndicator(null);
     }
 
-    private void initData() {
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
         datas.clear();
         filteredDatas.clear();
 

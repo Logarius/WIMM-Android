@@ -1,11 +1,6 @@
 package net.oschina.git.roland.wimm.settings;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
@@ -16,15 +11,26 @@ import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 
 public class SettingsFragment extends HeaderFragment {
 
-    @Nullable
+    private ListView lvSettings;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_welcome, container, false);
+    protected int getContentViewLayout() {
+        return R.layout.fragment_settings;
+    }
 
-        TextView textView = (TextView) view.findViewById(R.id.text);
-        textView.setText("SettingsFragment");
+    @Override
+    protected void initComp() {
+        lvSettings = (ListView) findViewById(R.id.lv_settings);
+    }
 
-        return view;
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
