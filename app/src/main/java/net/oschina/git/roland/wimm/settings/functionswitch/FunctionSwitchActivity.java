@@ -17,6 +17,10 @@ import org.xutils.view.annotation.ViewInject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Roland on 2017/4/28.
+ */
+
 @ContentView(R.layout.activity_function_switch)
 public class FunctionSwitchActivity extends BaseActivity {
 
@@ -51,7 +55,7 @@ public class FunctionSwitchActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        user = WIMMApplication.getApplication().getUser();
+        user = application.getUser();
         functions = Function.findBy(user.getUserId());
         functionItems.clear();
         List<FunctionItem> temp = functionsSwitchUtil.convertToFunctionItems(functions);

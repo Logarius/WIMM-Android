@@ -9,6 +9,10 @@ import net.oschina.git.roland.wimm.common.view.CommonHeader;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
+/**
+ * Created by Roland on 2017/4/21.
+ */
+
 @ContentView(R.layout.activity_rental_assistant)
 public class RentalAssistantActivity extends BaseActivity {
 
