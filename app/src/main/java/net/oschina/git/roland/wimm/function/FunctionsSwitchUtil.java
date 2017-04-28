@@ -28,6 +28,8 @@ public class FunctionsSwitchUtil {
 
     private Map<String, Integer> functionNameMap = new HashMap<>();
 
+    private String[] functionAction;
+
     public static FunctionsSwitchUtil getInstance() {
         if (instance == null) {
             instance = new FunctionsSwitchUtil();
@@ -49,6 +51,8 @@ public class FunctionsSwitchUtil {
             functionIconIds[i] = typedArray.getResourceId(i, 0);
         }
         typedArray.recycle();
+
+        functionAction = context.getResources().getStringArray(R.array.functions_action);
     }
 
     public void enableAllFunctions(String userId) {
@@ -99,6 +103,7 @@ public class FunctionsSwitchUtil {
                         icon = context.getResources().getDrawable(functionIconIds[functionId]);
                     }
                     FunctionItem item = new FunctionItem(functionTitles[functionId], icon);
+                    item.setAction(functionAction[functionId]);
                     result.add(item);
                 } else {
                     function.deleteFromDb();

@@ -67,7 +67,7 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
 
     @Override
     public void onClick(View view, FunctionItem item) {
-        Intent intent = new Intent(getContext(), item.getTarget());
+        Intent intent = new Intent(item.getAction());
         startActivity(intent);
     }
 

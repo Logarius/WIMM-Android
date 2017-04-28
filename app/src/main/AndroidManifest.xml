@@ -22,7 +22,13 @@
         </activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".function.rental.RentalAssistantActivity"/>
+
+        <activity android:name=".function.rental.RentalAssistantActivity">
+            <intent-filter>
+                <action android:name="functions.rental_assistant" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

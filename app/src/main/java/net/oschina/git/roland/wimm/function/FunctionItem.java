@@ -16,7 +16,7 @@ class FunctionItem {
 
     private Drawable icon;
 
-    private Class target;
+    private String action;
 
     FunctionItem(String title, Drawable icon) {
         this.title = title;
@@ -37,7 +37,7 @@ class FunctionItem {
         return title;
     }
 
-    public void setTitle(String title) {
+    void setTitle(String title) {
         this.title = title;
     }
 
@@ -45,15 +45,15 @@ class FunctionItem {
         return icon;
     }
 
-    public void setIcon(Drawable icon) {
+    void setIcon(Drawable icon) {
         this.icon = icon;
     }
 
-    void setTarget(Class target) {
-        this.target = target;
+    String getAction() {
+        return action;
     }
 
-    Class getTarget() {
-        return target;
+    void setAction(String action) {
+        this.action = action;
     }
 }

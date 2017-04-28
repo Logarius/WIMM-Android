@@ -13,4 +13,8 @@
         <item>@drawable/rental</item>
     </integer-array>
 
+    <string-array name="functions_action">
+        <item>functions.rental_assistant</item>
+    </string-array>
+
 </resources>
