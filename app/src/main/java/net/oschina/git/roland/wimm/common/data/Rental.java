@@ -12,6 +12,9 @@ import org.xutils.db.annotation.Table;
 @Table(name = "Rental")
 public class Rental extends BaseDbObj {
 
+    @Column(name = "id", isId = true)
+    private int id;
+
     /**
      * 租房记录ID
      */

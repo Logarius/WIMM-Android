@@ -88,7 +88,7 @@ public class FunctionsSwitchUtil {
 
     public List<FunctionItem> findFunctionItemListByUserId(String userId) {
         Context context = WIMMApplication.getApplication();
-        List<Function> functions = Function.findFunctions(userId);
+        List<Function> functions = Function.findBy(userId);
         List<FunctionItem> result = new ArrayList<>();
 
         if (functions != null) {

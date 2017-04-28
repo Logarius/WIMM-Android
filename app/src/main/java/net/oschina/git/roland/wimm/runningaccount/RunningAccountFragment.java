@@ -36,7 +36,7 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
 
     private Map<String, List<RunningAccount>> filteredDatas = new HashMap<>();
 
-    private Account account = WIMMApplication.getApplication().getmAccount();
+    private Account account = WIMMApplication.getApplication().getAccount();
 
     @Override
     protected void initComp() {
@@ -56,7 +56,7 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
         datas.clear();
         filteredDatas.clear();
 
-        List<RunningAccount> localData = RunningAccount.findByUserId(WIMMApplication.getApplication().getmUser().getUserId());
+        List<RunningAccount> localData = RunningAccount.findByUserId(WIMMApplication.getApplication().getUser().getUserId());
         if (localData != null && localData.size() > 0) {
             datas.addAll(localData);
             filterData();

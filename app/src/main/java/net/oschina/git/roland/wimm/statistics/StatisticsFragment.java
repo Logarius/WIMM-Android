@@ -23,9 +23,9 @@ public class StatisticsFragment extends HeaderFragment {
     @ViewInject(R.id.tv_amount)
     private TextView tvAmount;
 
-    private User user = WIMMApplication.getApplication().getmUser();
+    private User user = WIMMApplication.getApplication().getUser();
 
-    private Account account = WIMMApplication.getApplication().getmAccount();
+    private Account account = WIMMApplication.getApplication().getAccount();
 
     @Override
     protected void initComp() {

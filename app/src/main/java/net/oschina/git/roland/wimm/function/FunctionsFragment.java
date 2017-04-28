@@ -8,7 +8,6 @@ import android.view.View;
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.data.Function;
 import net.oschina.git.roland.wimm.common.data.User;
 
 import org.xutils.view.annotation.ContentView;
@@ -32,7 +31,7 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
 
     private List<FunctionItem> functions;
 
-    private User user = WIMMApplication.getApplication().getmUser();
+    private User user = WIMMApplication.getApplication().getUser();
 
     @Override
     public void refreshHeader() {

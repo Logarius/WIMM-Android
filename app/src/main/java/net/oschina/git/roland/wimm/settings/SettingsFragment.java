@@ -25,7 +25,7 @@ public class SettingsFragment extends HeaderFragment {
     @ViewInject(R.id.btnFunction)
     private Button btnFunction;
 
-    private User user = WIMMApplication.getApplication().getmUser();
+    private User user = WIMMApplication.getApplication().getUser();
 
     private boolean enable = false;
 

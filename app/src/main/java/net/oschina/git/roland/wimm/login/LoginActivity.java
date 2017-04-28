@@ -84,12 +84,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     user.setPassword(password);
                     user.setName(userId);
                     user.saveOrUpdate();
-                    application.setmUser(user);
+                    application.setUser(user);
 
                     Account account = new Account();
                     account.setUserId(userId);
                     account.saveOrUpdate();
-                    application.setmAccount(account);
+                    application.setAccount(account);
 
                     FunctionsSwitchUtil.getInstance().enableAllFunctions(userId);
 
@@ -102,8 +102,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 if (temp == null) {
                     Toast.makeText(LoginActivity.this, R.string.warning_userid_password_error, Toast.LENGTH_SHORT).show();
                 } else {
-                    application.setmUser(temp);
-                    application.setmAccount(Account.findByUserId(temp.getUserId()));
+                    application.setUser(temp);
+                    application.setAccount(Account.findByUserId(temp.getUserId()));
                     toMainActivity();
                 }
                 break;
@@ -115,7 +115,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private void toMainActivity() {
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(WIMMConstants.SP_KEY_LAST_LOGIN_USER, application.getmUser().getUserId());
+        editor.putString(WIMMConstants.SP_KEY_LAST_LOGIN_USER, application.getUser().getUserId());
         editor.apply();
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);

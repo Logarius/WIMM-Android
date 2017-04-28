@@ -44,7 +44,7 @@ public class Function extends BaseDbObj {
         this.functionName = functionName;
     }
 
-    public static List<Function> findFunctions(String userId) {
+    public static List<Function> findBy(String userId) {
         DbManager db = x.getDb(WIMMApplication.getApplication().getDaoConfig());
         List<Function> result = null;
 

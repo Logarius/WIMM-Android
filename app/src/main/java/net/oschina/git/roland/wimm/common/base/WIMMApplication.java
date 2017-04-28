@@ -38,19 +38,19 @@ public class WIMMApplication extends Application {
         return application;
     }
 
-    public User getmUser() {
+    public User getUser() {
         return mUser;
     }
 
-    public void setmUser(User mUser) {
+    public void setUser(User mUser) {
         this.mUser = mUser;
     }
 
-    public Account getmAccount() {
+    public Account getAccount() {
         return mAccount;
     }
 
-    public void setmAccount(Account mAccount) {
+    public void setAccount(Account mAccount) {
         this.mAccount = mAccount;
     }
 
