@@ -1,14 +1,12 @@
 package net.oschina.git.roland.wimm.settings;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
-import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.data.User;
-import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;
+import net.oschina.git.roland.wimm.settings.functionswitch.FunctionSwitchActivity;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -17,17 +15,10 @@ import org.xutils.view.annotation.ViewInject;
  * Created by Roland on 2017/4/10.
  */
 @ContentView(R.layout.fragment_settings)
-public class SettingsFragment extends HeaderFragment {
-
-    @ViewInject(R.id.lv_settings)
-    private ListView lvSettings;
+public class SettingsFragment extends HeaderFragment implements View.OnClickListener {
 
     @ViewInject(R.id.btnFunction)
     private Button btnFunction;
-
-    private User user = WIMMApplication.getApplication().getUser();
-
-    private boolean enable = false;
 
     @Override
     protected void initComp() {
@@ -36,17 +27,7 @@ public class SettingsFragment extends HeaderFragment {
 
     @Override
     protected void initListener() {
-        btnFunction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                enable = !enable;
-                if (enable) {
-                    FunctionsSwitchUtil.getInstance().enableFunction(user.getUserId(), "rental_assistant");
-                } else {
-                    FunctionsSwitchUtil.getInstance().disableFunction(user.getUserId(), "rental_assistant");
-                }
-            }
-        });
+        btnFunction.setOnClickListener(this);
     }
 
     @Override
@@ -58,5 +39,23 @@ public class SettingsFragment extends HeaderFragment {
     public void refreshHeader() {
         super.refreshHeader();
         header.setTitle(R.string.str_settings);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+
+        switch (v.getId()) {
+            case R.id.btnFunction:
+                intent = new Intent(getContext(), FunctionSwitchActivity.class);
+                break;
+
+            default:
+                break;
+        }
+
+        if (intent != null) {
+            startActivity(intent);
+        }
     }
 }

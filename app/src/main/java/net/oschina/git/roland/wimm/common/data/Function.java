@@ -23,10 +23,13 @@ public class Function extends BaseDbObj {
     private int id;
 
     @Column(name = "userId")
-    private String userId;
+    private String userId = "";
 
     @Column(name = "functionName")
-    private String functionName;
+    private String functionName = "";
+
+    @Column(name = "enable")
+    private boolean enable = false;
 
     public String getUserId() {
         return userId;
@@ -42,6 +45,14 @@ public class Function extends BaseDbObj {
 
     public void setFunctionName(String functionName) {
         this.functionName = functionName;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     public static List<Function> findBy(String userId) {

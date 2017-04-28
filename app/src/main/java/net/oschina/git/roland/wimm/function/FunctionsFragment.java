@@ -57,7 +57,7 @@ public class FunctionsFragment extends HeaderFragment implements FunctionsItemCl
     @Override
     protected void initData() {
         functions.clear();
-        List<FunctionItem> temp = FunctionsSwitchUtil.getInstance().findFunctionItemListByUserId(user.getUserId());
+        List<FunctionItem> temp = FunctionsSwitchUtil.getInstance().findEnabledFunctionItems(user.getUserId());
         if (temp != null) {
             functions.addAll(temp);
         }

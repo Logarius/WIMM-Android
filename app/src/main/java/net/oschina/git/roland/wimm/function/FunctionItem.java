@@ -10,7 +10,7 @@ import net.oschina.git.roland.wimm.common.base.WIMMApplication;
  * Created by Roland on 2017/4/26.
  */
 
-class FunctionItem {
+public class FunctionItem {
 
     private String title;
 
@@ -18,12 +18,14 @@ class FunctionItem {
 
     private String action;
 
-    FunctionItem(String title, Drawable icon) {
+    private boolean enable;
+
+    public FunctionItem(String title, Drawable icon) {
         this.title = title;
         this.icon = icon;
     }
 
-    FunctionItem(int titleId, int iconId) {
+    public FunctionItem(int titleId, int iconId) {
         Context context = WIMMApplication.getApplication();
         this.title = context.getString(titleId);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -33,27 +35,35 @@ class FunctionItem {
         }
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    Drawable getIcon() {
+    public Drawable getIcon() {
         return icon;
     }
 
-    void setIcon(Drawable icon) {
+    public void setIcon(Drawable icon) {
         this.icon = icon;
     }
 
-    String getAction() {
+    public String getAction() {
         return action;
     }
 
-    void setAction(String action) {
+    public void setAction(String action) {
         this.action = action;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

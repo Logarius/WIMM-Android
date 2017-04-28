@@ -57,38 +57,38 @@ public class FunctionsSwitchUtil {
 
     public void enableAllFunctions(String userId) {
         for (String functionName : functionNameMap.keySet()) {
-            enableFunction(userId, functionName);
+            setFunctionEnabled(userId, functionName, true);
         }
     }
 
     public void disableAllFunctions(String userId) {
-        Function.deleteByUserId(userId);
-    }
-
-    public void enableFunction(String userId, String functionName) {
-        if (functionNameMap.containsKey(functionName)) {
-            Function function = Function.findBy(userId, functionName);
-            if (function == null) {
-                function = new Function();
-                function.setUserId(userId);
-                function.setFunctionName(functionName);
+        List<Function> functions = Function.findBy(userId);
+        if (functions != null) {
+            for (Function function : functions) {
+                function.setEnable(false);
                 function.saveOrUpdate();
             }
         }
     }
 
-    public void disableFunction(String userId, String functionName) {
+    public void setFunctionEnabled(String userId, String functionName, boolean enable) {
         if (functionNameMap.containsKey(functionName)) {
             Function function = Function.findBy(userId, functionName);
+            if (function == null && enable) {
+                function = new Function();
+                function.setUserId(userId);
+                function.setFunctionName(functionName);
+            }
+
             if (function != null) {
-                function.deleteFromDb();
+                function.setEnable(enable);
+                function.saveOrUpdate();
             }
         }
     }
 
-    public List<FunctionItem> findFunctionItemListByUserId(String userId) {
+    public List<FunctionItem> convertToFunctionItems(List<Function> functions) {
         Context context = WIMMApplication.getApplication();
-        List<Function> functions = Function.findBy(userId);
         List<FunctionItem> result = new ArrayList<>();
 
         if (functions != null) {
@@ -104,6 +104,7 @@ public class FunctionsSwitchUtil {
                     }
                     FunctionItem item = new FunctionItem(functionTitles[functionId], icon);
                     item.setAction(functionAction[functionId]);
+                    item.setEnable(function.isEnable());
                     result.add(item);
                 } else {
                     function.deleteFromDb();
@@ -111,6 +112,17 @@ public class FunctionsSwitchUtil {
             }
         }
 
+        return result;
+    }
+
+    public List<FunctionItem> findEnabledFunctionItems(String userId) {
+        List<Function> functions = Function.findBy(userId);
+        List<FunctionItem> result = convertToFunctionItems(functions);
+        for (FunctionItem item : result) {
+            if (!item.isEnable()) {
+                result.remove(item);
+            }
+        }
         return result;
     }
 }
