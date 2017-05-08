@@ -13,10 +13,10 @@ import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
-import net.oschina.git.roland.wimm.function.FunctionsFragment;
-import net.oschina.git.roland.wimm.runningaccount.RunningAccountFragment;
-import net.oschina.git.roland.wimm.settings.SettingsFragment;
-import net.oschina.git.roland.wimm.statistics.StatisticsFragment;
+import net.oschina.git.roland.wimm.model.function.FunctionsFragment;
+import net.oschina.git.roland.wimm.model.runningaccount.RunningAccountFragment;
+import net.oschina.git.roland.wimm.model.settings.SettingsFragment;
+import net.oschina.git.roland.wimm.model.statistics.StatisticsFragment;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.runningaccount;
+package net.oschina.git.roland.wimm.model.runningaccount;
 
 import android.content.Context;
 import android.view.LayoutInflater;

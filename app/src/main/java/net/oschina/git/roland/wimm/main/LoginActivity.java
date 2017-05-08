@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.login;
+package net.oschina.git.roland.wimm.main;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +13,7 @@ import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.entities.Account;
 import net.oschina.git.roland.wimm.common.entities.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
-import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;
-import net.oschina.git.roland.wimm.main.MainActivity;
+import net.oschina.git.roland.wimm.model.function.FunctionsSwitchUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

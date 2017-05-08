@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.settings.functionswitch;
+package net.oschina.git.roland.wimm.model.settings.functionswitch;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.function.FunctionItem;
+import net.oschina.git.roland.wimm.model.function.FunctionItem;
 
 import java.util.List;
 

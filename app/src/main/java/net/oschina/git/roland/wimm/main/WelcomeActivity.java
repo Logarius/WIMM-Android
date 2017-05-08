@@ -6,7 +6,6 @@ import android.os.Message;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
-import net.oschina.git.roland.wimm.login.LoginActivity;
 
 import org.xutils.view.annotation.ContentView;
 

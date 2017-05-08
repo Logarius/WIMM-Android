@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.settings.functionswitch;
+package net.oschina.git.roland.wimm.model.settings.functionswitch;
 
 import android.widget.ListView;
 
@@ -7,8 +7,8 @@ import net.oschina.git.roland.wimm.common.base.BaseActivity;
 import net.oschina.git.roland.wimm.common.entities.Function;
 import net.oschina.git.roland.wimm.common.entities.User;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
-import net.oschina.git.roland.wimm.function.FunctionItem;
-import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;
+import net.oschina.git.roland.wimm.model.function.FunctionItem;
+import net.oschina.git.roland.wimm.model.function.FunctionsSwitchUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
