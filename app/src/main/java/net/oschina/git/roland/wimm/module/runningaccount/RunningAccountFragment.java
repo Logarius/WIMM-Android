@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.runningaccount;
+package net.oschina.git.roland.wimm.module.runningaccount;
 
 import android.widget.ExpandableListView;
 

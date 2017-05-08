@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.function;
+package net.oschina.git.roland.wimm.module.function;
 
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;

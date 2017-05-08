@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.function;
+package net.oschina.git.roland.wimm.module.function;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

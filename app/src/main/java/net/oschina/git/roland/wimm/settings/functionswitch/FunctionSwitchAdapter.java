@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.model.function.FunctionItem;
+import net.oschina.git.roland.wimm.module.function.FunctionItem;
 
 import java.util.List;
 

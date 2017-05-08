@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.statistics;
+package net.oschina.git.roland.wimm.module.statistics;
 
 import android.widget.TextView;
 

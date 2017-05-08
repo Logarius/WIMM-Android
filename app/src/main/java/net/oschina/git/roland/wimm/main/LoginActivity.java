@@ -13,7 +13,7 @@ import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.entities.Account;
 import net.oschina.git.roland.wimm.common.entities.User;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
-import net.oschina.git.roland.wimm.model.function.FunctionsSwitchUtil;
+import net.oschina.git.roland.wimm.module.function.FunctionsSwitchUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

@@ -7,8 +7,8 @@ import net.oschina.git.roland.wimm.common.base.BaseActivity;
 import net.oschina.git.roland.wimm.common.entities.Function;
 import net.oschina.git.roland.wimm.common.entities.User;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
-import net.oschina.git.roland.wimm.model.function.FunctionItem;
-import net.oschina.git.roland.wimm.model.function.FunctionsSwitchUtil;
+import net.oschina.git.roland.wimm.module.function.FunctionItem;
+import net.oschina.git.roland.wimm.module.function.FunctionsSwitchUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

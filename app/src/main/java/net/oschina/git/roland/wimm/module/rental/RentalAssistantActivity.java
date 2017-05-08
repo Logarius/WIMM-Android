@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.rental;
+package net.oschina.git.roland.wimm.module.rental;
 
 import android.util.Log;
 
