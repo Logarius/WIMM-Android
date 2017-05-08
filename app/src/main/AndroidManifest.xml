@@ -25,7 +25,7 @@
 
         <activity android:name=".main.MainActivity" />
 
-        <activity android:name=".model.function.rental.RentalAssistantActivity">
+        <activity android:name=".model.rental.RentalAssistantActivity">
             <intent-filter>
                 <action android:name="functions.rental_assistant" />
                 <category android:name="android.intent.category.DEFAULT" />
