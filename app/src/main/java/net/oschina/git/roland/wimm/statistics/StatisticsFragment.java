@@ -5,8 +5,8 @@ import android.widget.TextView;
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.HeaderFragment;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.data.Account;
-import net.oschina.git.roland.wimm.common.data.User;
+import net.oschina.git.roland.wimm.common.entities.Account;
+import net.oschina.git.roland.wimm.common.entities.User;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;

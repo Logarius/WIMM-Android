@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMConstants;
-import net.oschina.git.roland.wimm.common.data.RunningAccount;
+import net.oschina.git.roland.wimm.common.entities.RunningAccount;
 import net.oschina.git.roland.wimm.common.utils.StringUtils;
 import net.oschina.git.roland.wimm.common.view.DateSelectDialog;
 

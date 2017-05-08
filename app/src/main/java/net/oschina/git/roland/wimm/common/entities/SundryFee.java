@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.common.data;
+package net.oschina.git.roland.wimm.common.entities;
 
 import net.oschina.git.roland.wimm.common.base.BaseDbObj;
 

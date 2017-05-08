@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMConstants;
-import net.oschina.git.roland.wimm.common.data.RunningAccount;
+import net.oschina.git.roland.wimm.common.entities.RunningAccount;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

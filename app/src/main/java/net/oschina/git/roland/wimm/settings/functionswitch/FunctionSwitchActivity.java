@@ -4,9 +4,8 @@ import android.widget.ListView;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
-import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.data.Function;
-import net.oschina.git.roland.wimm.common.data.User;
+import net.oschina.git.roland.wimm.common.entities.Function;
+import net.oschina.git.roland.wimm.common.entities.User;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
 import net.oschina.git.roland.wimm.function.FunctionItem;
 import net.oschina.git.roland.wimm.function.FunctionsSwitchUtil;

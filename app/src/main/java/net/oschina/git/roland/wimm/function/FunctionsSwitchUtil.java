@@ -7,7 +7,7 @@ import android.os.Build;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.data.Function;
+import net.oschina.git.roland.wimm.common.entities.Function;
 
 import java.util.ArrayList;
 import java.util.HashMap;

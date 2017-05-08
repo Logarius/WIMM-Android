@@ -2,8 +2,8 @@ package net.oschina.git.roland.wimm.common.base;
 
 import android.app.Application;
 
-import net.oschina.git.roland.wimm.common.data.Account;
-import net.oschina.git.roland.wimm.common.data.User;
+import net.oschina.git.roland.wimm.common.entities.Account;
+import net.oschina.git.roland.wimm.common.entities.User;
 
 import org.xutils.DbManager;
 import org.xutils.x;
