@@ -1,4 +1,4 @@
-package net.oschina.git.roland.wimm.model.settings.functionswitch;
+package net.oschina.git.roland.wimm.settings.functionswitch;
 
 import android.content.Context;
 import android.view.LayoutInflater;

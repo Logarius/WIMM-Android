@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".model.settings.functionswitch.FunctionSwitchActivity">
+    tools:context=".settings.functionswitch.FunctionSwitchActivity">
 
     <net.oschina.git.roland.wimm.common.view.CommonHeader
         android:id="@+id/header"

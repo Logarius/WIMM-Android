@@ -15,7 +15,7 @@ import net.oschina.git.roland.wimm.common.view.HeaderFragment;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
 import net.oschina.git.roland.wimm.model.function.FunctionsFragment;
 import net.oschina.git.roland.wimm.model.runningaccount.RunningAccountFragment;
-import net.oschina.git.roland.wimm.model.settings.SettingsFragment;
+import net.oschina.git.roland.wimm.settings.SettingsFragment;
 import net.oschina.git.roland.wimm.model.statistics.StatisticsFragment;
 
 import org.xutils.view.annotation.ContentView;

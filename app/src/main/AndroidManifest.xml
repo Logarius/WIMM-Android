@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".model.settings.functionswitch.FunctionSwitchActivity" />
+        <activity android:name=".settings.functionswitch.FunctionSwitchActivity" />
 
     </application>
 
