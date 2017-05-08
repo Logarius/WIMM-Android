@@ -1,6 +1,6 @@
-package net.oschina.git.roland.wimm.common.base;
+package net.oschina.git.roland.wimm.common.view;
 
-import net.oschina.git.roland.wimm.common.view.CommonHeader;
+import net.oschina.git.roland.wimm.common.base.BaseFragment;
 
 /**
  * Created by Roland on 2017/4/24.

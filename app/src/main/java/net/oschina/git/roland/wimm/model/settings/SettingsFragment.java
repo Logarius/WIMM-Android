@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.view.HeaderFragment;
 import net.oschina.git.roland.wimm.model.settings.functionswitch.FunctionSwitchActivity;
 
 import org.xutils.view.annotation.ContentView;

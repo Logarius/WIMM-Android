@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.BaseActivity;
-import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.view.HeaderFragment;
 import net.oschina.git.roland.wimm.common.view.CommonHeader;
 import net.oschina.git.roland.wimm.model.function.FunctionsFragment;
 import net.oschina.git.roland.wimm.model.runningaccount.RunningAccountFragment;

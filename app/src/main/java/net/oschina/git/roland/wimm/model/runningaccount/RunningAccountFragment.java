@@ -3,7 +3,7 @@ package net.oschina.git.roland.wimm.model.runningaccount;
 import android.widget.ExpandableListView;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.view.HeaderFragment;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.entities.Account;

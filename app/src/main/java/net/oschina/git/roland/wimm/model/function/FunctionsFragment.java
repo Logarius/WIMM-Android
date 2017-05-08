@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import net.oschina.git.roland.wimm.R;
-import net.oschina.git.roland.wimm.common.base.HeaderFragment;
+import net.oschina.git.roland.wimm.common.view.HeaderFragment;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
 import net.oschina.git.roland.wimm.common.entities.User;
 
