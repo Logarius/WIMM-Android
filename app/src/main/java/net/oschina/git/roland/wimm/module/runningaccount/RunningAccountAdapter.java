@@ -44,7 +44,7 @@ class RunningAccountAdapter extends BaseExpandableListAdapter {
             groupNames.addAll(datas.keySet());
             sortGroupNames();
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.INSTANCE.getRUNNING_ACCOUNT_DATE_FORMAT(), Locale.US);
         dateToday = simpleDateFormat.format(new Date());
     }
 

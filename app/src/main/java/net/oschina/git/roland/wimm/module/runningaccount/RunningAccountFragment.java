@@ -67,7 +67,7 @@ public class RunningAccountFragment extends HeaderFragment implements CommonHead
 
     private void filterData() {
         filteredDatas.clear();
-        SimpleDateFormat dateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(WIMMConstants.INSTANCE.getRUNNING_ACCOUNT_DATE_FORMAT(), Locale.US);
         for (RunningAccount item : datas) {
             String strDate = dateFormat.format(new Date(item.getTimeStamp()));
             if (!filteredDatas.containsKey(strDate)) {

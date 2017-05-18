@@ -15,14 +15,25 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected WIMMApplication application = WIMMApplication.getApplication();
 
+    protected boolean kotlin = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        x.view().inject(this);
+
+        if (getContentViewLayout() > 0) {
+            setContentView(getContentViewLayout());
+        } else {
+            x.view().inject(this);
+        }
 
         initComp();
         initListener();
         initData();
+    }
+
+    protected int getContentViewLayout() {
+        return 0;
     }
 
     protected abstract void initComp();

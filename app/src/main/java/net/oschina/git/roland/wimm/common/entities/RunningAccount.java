@@ -75,11 +75,11 @@ public class RunningAccount extends BaseDbObj {
     }
 
     public double getAmount() {
-        return NumericUtils.getRoundDoubleValue(amount, 2);
+        return NumericUtils.INSTANCE.getRoundDoubleValue(amount, 2);
     }
 
     public void setAmount(double amount) {
-        this.amount = NumericUtils.getRoundDoubleValue(amount, 2);
+        this.amount = NumericUtils.INSTANCE.getRoundDoubleValue(amount, 2);
     }
 
     public static List<RunningAccount> findByUserId(String userId) {

@@ -65,7 +65,7 @@ class AddRunningAccountDialog {
             }
         });
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.INSTANCE.getRUNNING_ACCOUNT_DATE_FORMAT(), Locale.US);
         String strDateToday = simpleDateFormat.format(new Date());
         etDate.setText(strDateToday);
     }
@@ -73,7 +73,7 @@ class AddRunningAccountDialog {
     private View.OnClickListener btnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (StringUtils.isEmpty(etAmount.getText().toString())) {
+            if (StringUtils.INSTANCE.isEmpty(etAmount.getText().toString())) {
                 Toast.makeText(mContext, R.string.warning_inout_empty, Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -81,7 +81,7 @@ class AddRunningAccountDialog {
             if (onNewRunningAccountAddListener != null) {
                 double amount = Double.valueOf(etAmount.getText().toString());
                 RunningAccount result = new RunningAccount();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.RUNNING_ACCOUNT_DATE_FORMAT, Locale.US);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WIMMConstants.INSTANCE.getRUNNING_ACCOUNT_DATE_FORMAT(), Locale.US);
                 try {
                     result.setTimeStamp(simpleDateFormat.parse(etDate.getText().toString()).getTime());
                 } catch (ParseException e) {
