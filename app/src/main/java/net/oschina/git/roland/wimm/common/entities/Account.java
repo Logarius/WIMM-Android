@@ -1,8 +1,8 @@
 package net.oschina.git.roland.wimm.common.entities;
 
+import net.oschina.git.roland.androidtoolkit.common.NumericUtils;
 import net.oschina.git.roland.wimm.common.base.BaseDbObj;
 import net.oschina.git.roland.wimm.common.base.WIMMApplication;
-import net.oschina.git.roland.wimm.common.utils.NumericUtils;
 
 import org.xutils.DbManager;
 import org.xutils.db.annotation.Column;

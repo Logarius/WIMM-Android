@@ -11,10 +11,10 @@ import net.oschina.git.roland.wimm.common.base.BaseActivity
 import net.oschina.git.roland.wimm.common.base.WIMMConstants
 import net.oschina.git.roland.wimm.common.entities.Account
 import net.oschina.git.roland.wimm.common.entities.User
-import net.oschina.git.roland.wimm.common.utils.StringUtils
 import net.oschina.git.roland.wimm.module.function.FunctionsSwitchUtil
 
 import kotlinx.android.synthetic.main.activity_login.*
+import net.oschina.git.roland.androidtoolkit.common.StringUtils
 
 /**
  * Created by Roland on 2017/4/10.

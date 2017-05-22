@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import net.oschina.git.roland.androidtoolkit.common.StringUtils;
 import net.oschina.git.roland.wimm.R;
 import net.oschina.git.roland.wimm.common.base.WIMMConstants;
 import net.oschina.git.roland.wimm.common.entities.RunningAccount;
-import net.oschina.git.roland.wimm.common.utils.StringUtils;
 import net.oschina.git.roland.wimm.common.view.DateSelectDialog;
 
 import java.text.ParseException;

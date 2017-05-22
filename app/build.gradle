@@ -31,7 +31,11 @@ dependencies {
     compile 'com.android.support:design:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile(name: 'androidtoolkit-release', ext: 'aar')
 }
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
